@@ -1,155 +1,907 @@
-<!doctype html>
-<html lang="en-US">
+<!DOCTYPE html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Inti Demonstration</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-<link rel="stylesheet" href="css/vendor/vegas.min.css">
-<link rel="stylesheet" href="css/vendor/reset.css">
+<meta charset="UTF-8">
+<title>Inti DEMONSTRATION</title>
+
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/d3.min.js"></script>
+<script src="js/lib/c3.min.js"></script>
+<script src="js/inti.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/chart_data.js"></script>
+<script src="lang/inti_information_ja.js"></script>
+<script src="lang/inti_information_cn.js"></script>
+<script src="lang/inti_information_en.js"></script>
+
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home_style.css">
+<link rel="stylesheet" href="css/schedule_style.css">
+<link rel="stylesheet" href="css/net_style.css">
+<link rel="stylesheet" href="css/pv_style.css">
+<link rel="stylesheet" href="css/switch_style.css">
+<link rel="stylesheet" href="css/charger_style.css">
+<link rel="stylesheet" href="css/mppt_style.css">
+<link rel="stylesheet" href="css/battery_style.css">
+<link rel="stylesheet" href="css/2nd_ac_style.css">
+<link rel="stylesheet" href="css/lib/font-awesome.min.css">
+<link rel="stylesheet" href="css/lib/c3.min.css">
 
-<link rel="stylesheet" href="css/main.css">
-<script src="js/vendor/jquery-2.2.4.min.js"></script>
-
-<script src="js/vendor/vegas.min.js"></script>
-<script src="js/vendor/jquery.lwtCountdown-1.0.js"></script>
-<script src="js/main.js"></script>
+<style> /* リセット */
+ html, body { margin: 0; height: 100%; font-family: sans-serif; }
+div { list-style-type: none; margin: 0; padding: 0; }
+div { display: block; }
+</style>
 </head>
-<body>
-<div class="page-loader"></div>
-
-<header></header>
-
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="countdown-container" id="lwt-countdown"></div>
-      </div>
+<body class="ja">
+<!-- ***************************  ヘッダーエリア  *************************** -->
+                <!-- 上端左端に置くロゴ -->
+<div id="header-area">                            <!-- ヘッダーエリアのコンテナ -->
+  <div id="logo"        ></div>              <!-- アイテム -->
+<!--  <div id="logo-sub"    > ロゴ</div>              <!-- アイテム -->
+                <!-- 上端中央に置くヘッダー・説明等に使う -->
+<!--  <div id="explanation-title">説明1</div>         <!-- アイテム -->
+  <div id="explanation">
+    <div>
     </div>
   </div>
-</section>
 
-<section id="content">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="content-intro">
-          <h1 class="wow zoomInLeft" data-wow-delay="0.3s"><span class="main-color">Inti</span> Demonstration</h1>
-          <p class="wow zoomIn" data-wow-delay="0.5s">A simple template for telling the world when you'll launch your next big thing. Brought to you by.</p>
-          <div id="form">
-            <div id="form-subscriber"></div>
-            <div class="form-container wow bounceInLeft" data-wow-delay="0.5s">
-              <div class="page-section" id="signup">
-                <form method="post" action="main.html" class="subscriptionForm subscribe-form" target="_blank">
-                  <input type="text" id="email" name="email" class="emailfield" placeholder="Login Password"/>
-                  <input type="submit" class="submit" id="submit" value="Sign Up" />
-                </form> 
-              </div>
-            </div>
-          </div>
+                <!-- 上端右端に置く汎用エリア -->
+　<div id="operation">
+    <div id="operation-home">
+      <div id="login-start" class="button-sp"><a href="#">Signin</a></div>
+      <div id="operation-language">
+        <select class="button">
+          <option value="English">-  English</option>
+          <option value="Japanise">-  日本語</option>
+          <option value="Chinese">-  简体中文</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="operation-others">
+      <div id="go-home" class="hvr-buzz-out">
+        <img src="images/go-home.gif">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ***************************  フッター  *************************** -->
+<div id="footer-area">                            <!-- 最上位　　・アイテム -->
+  <div id="footer">フッター</div>
+</div>
+<!-- ***************************  ログエリア  *************************** -->
+
+<div id="log-area">
+  <div id="log"        >ログ</div>
+</div>
+
+<div id= "log-container">
+  <div id="log-page">
+    <div><i class="fa fa-close"></i></div>
+  </div>
+</div>
+
+
+<!-- ***************************  メインコンテンツ  *************************** -->
+
+<!-- ####################  ホーム ####################  -->
+<div id="home-area">   <!-- 最上位　　・アイテム -->
+<!-- ==========  チャート  ========== -->
+  <div id="chart-area">
+                        <!-- 出力電力円グラフ -->
+    <div class="chart" id="chart_outlet">
+      <div class="circle-mask-outer left">
+        <div class="circle-mask-inner">
+          <div class="circle-body"></div>
         </div>
       </div>
+      <div class="circle-mask-outer right">
+        <div class="circle-mask-inner">
+          <div class="circle-body"></div>
+        </div>
+      </div>
+      <div class="chart-content">
+        <div class="l_icon"><img class="icon" src="images/graphic-outlet.png"></div>
+        <div class="title" id="mchart-001"></div>
+        <span class="percent-number">70</span>
+        <span class=".percent-symbol">W</span>
+      </div>
+      <div class="chart_t"></div>
+    </div>
+                        <!-- 充電電力円グラフ -->
+    <div class="chart" id="chart_charg">
+      <div class="circle-mask-outer left">
+        <div class="circle-mask-inner">
+          <div class="circle-body"></div>
+        </div>
+      </div>
+      <div class="circle-mask-outer right">
+        <div class="circle-mask-inner">
+          <div class="circle-body"></div>
+        </div>
+      </div>
+      <div class="chart-content">
+        <div class="l_icon"><img class="icon" src="images/graphic-charg.png"></div>
+        <div class="title" id="mchart-002"></div>
+        <span class="percent-number">40</span>
+        <span>W</span>
+      </div>
+      <div class="chart_t"></div>
+    </div>
+                        <!-- 太陽光発電電力円グラフ -->
+    <div class="chart" id="chart_solar">
+      <div class="circle-mask-outer left">
+        <div class="circle-mask-inner">
+          <div class="circle-body"></div>
+        </div>
+      </div>
+      <div class="circle-mask-outer right">
+        <div class="circle-mask-inner">
+          <div class="circle-body"></div>
+        </div>
+      </div>
+      <div class="chart-content">
+        <div class="l_icon"><img class="icon" src="images/graphic-solar.png"></div>
+        <div class="title" id="mchart-003"></div>
+        <span class="percent-number">90</span>
+        <span>W</span>
+      </div>
+      <div class="chart_t"></div>
+    </div>
+  </div>
 
-      <div class="col-md-6">
-        <div id="scene-2-content">
-          <div class="charts clearfix">
-            <div class="chart" id="water">
-              <div class="circle-mask-outer left">
-                <div class="circle-mask-inner">
-                  <div class="circle-body"></div>
-                </div>
-              </div>
-              <div class="circle-mask-outer right">
-                <div class="circle-mask-inner">
-                  <div class="circle-body"></div>
-                </div>
-              </div>
-              <div class="chart-content">
-                <img class="icon" src="img/graphic-water.png">
-                <p class="text">
-                  <span class="percent-number">60</span>
-                  <span class="percent-symbol">%</span>
-                </p>
-              </div>
-            </div>
+<!-- ==========  ブロック図（ランチャー）  ========== -->
+  <div id="diagram-area">                       <!-- 第二レベル・アイテム -->
+       <!--  --- アイコン --- -->
+    <div id="diagram"    ></div>
+    <div id="inet_icon"      class="hvr-grow-rotate"      ></div>
+    <div id="pv_icon"        class="hvr-wobble-vertical"  ></div>
+    <div id="ac_icon"        class="hvr-bounce-in"        ></div>
+    <div id="remote_icon"    class="rZ"                   ></div>
+    <div id="switching_icon" class="hvr-wobble-horizontal"></div>
+    <div id="outlet_icon"    class="hvr-bounce-in"        ></div>
+    <div id="usb_icon"       class="hvr-buzz-out"         ></div>
+    <div id="charger_icon"   class="hvr-buzz-out"         ></div>
+    <div id="battery_icon"   class="hvr-buzz-out"         >80%</div>
+    <div id="inverter_icon"  class="hvr-buzz-out"         >インバーター</div>
+    <div id="mppt_icon"      class="hvr-buzz-out"         ></div>
+    <div id="db_icon"        class="hvr-wobble-bottom"    >データベース</div>
+    <div id="schedule_icon"  class="hvr-curl-top-right"   ></div>
+    <div id="special_icon">
+        <div>Button</div>
+        <div></div>
+    </div>
+       <!--  --- 矢印 --- -->
+    <div id="home_arrow1"></div>
+    <div id="home_arrow2"></div>
+    <div id="home_arrow3"></div>
+    <div id="home_arrow3-2"></div>
+    <div id="home_arrow4"></div>
+    <div id="home_arrow4-2"></div>
+    <div id="home_arrow5"></div>
+    <div id="home_arrow6"></div>
+    <div id="home_arrow7"></div>
+    <div id="home_arrow8"></div>
+    <div id="home_arrow8-2"></div>
+    <div id="home_arrow9"></div>
+    <div id="home_arrow10"></div>
+    <div id="home_arrow11"></div>
+    <div id="home_arrow12"></div>
+    <div id="home_arrow13"></div>
+    <div id="home_arrow14"></div>
 
-            <div class="chart" id="woods">
-              <div class="circle-mask-outer left">
-                <div class="circle-mask-inner">
-                  <div class="circle-body"></div>
-                </div>
-              </div>
-              <div class="circle-mask-outer right">
-                <div class="circle-mask-inner">
-                  <div class="circle-body"></div>
-                </div>
-              </div>
-              <div class="chart-content">
-                <img class="icon" src="img/graphic-woods.png">
-                <p class="text">
-                  <span class="percent-number">90</span>
-                  <span class="percent-symbol">W</span>
-                </p>
-              </div>
-            </div>
+  </div>
 
-            <div class="chart" id="birds">
-              <div class="circle-mask-outer left">
-                <div class="circle-mask-inner">
-                  <div class="circle-body"></div>
-                </div>
-              </div>
-              <div class="circle-mask-outer right">
-                <div class="circle-mask-inner">
-                  <div class="circle-body"></div>
-                </div>
-              </div>
-              <div class="chart-content">
-                <img class="icon" src="img/graphic-bird.png">
-                <p class="text">
-                  <span class="percent-number">30</span>
-                  <span class="percent-symbol">W</span>
-                </p>
-              </div>
-            </div>
+</div>
 
-            <div class="chart" id="sunshine">
-              <div class="circle-mask-outer left">
-                <div class="circle-mask-inner">
-                  <div class="circle-body"></div>
-                </div>
-              </div>
-              <div class="circle-mask-outer right">
-                <div class="circle-mask-inner">
-                  <div class="circle-body"></div>
-                </div>
-              </div>
-              <div class="chart-content">
-                <img class="icon" src="img/graphic-sun.png" alt="Sunshine">
-                <p class="text">
-                  <span class="percent-number">45</span>
-                  <span class="percent-symbol">W</span>
-                </p>
-              </div>
-            </div>
-          </div>
+<!-- ####################  スケジュール設定  ####################  -->
 
-          <div class="chart6">
-            <h1>OUTPUT</h1>
-            <div class="page-section" id="signup">                                            	
-              <input type="text" id="email" name="email" class="emailfield"  placeholder="Outside" readonly="readonly"/>
-            </div>
-          </div>
+<div id="schedule-area">
+
+  <div id="schedule_header"> <!-- コンテナ -->
+    <div id="schedule_title"    >スケジュールタイトル</div>
+    <div id="schedule_sel"    >スケジュール選択</div>
+  </div>
+
+  <div id="schedule"> <!-- コンテナ -->
+
+    <div id="tim_am"    >時間</div>
+    <div id="frm_am"    ></div>
+    <div id="tim0"    >0</div>
+    <div id="tim1"    >1</div>
+    <div id="tim2"    >2</div>
+    <div id="tim3"    >3</div>
+    <div id="tim4"    >4</div>
+    <div id="tim5"    >5</div>
+    <div id="tim6"    >6</div>
+    <div id="tim7"    >7</div>
+    <div id="tim8"    >8</div>
+    <div id="tim9"    >9</div>
+    <div id="tim10"    >10</div>
+    <div id="tim11"    >11</div>
+    <div id="tim12-1"    >12</div>
+    <div id="tim_pm"    >時間</div>
+    <div id="frm_pm"    ></div>
+    <div id="tim12-2"    >12</div>
+    <div id="tim13"    >13</div>
+    <div id="tim14"    >14</div>
+    <div id="tim15"    >15</div>
+    <div id="tim16"    >16</div>
+    <div id="tim17"    >17</div>
+    <div id="tim18"    >18</div>
+    <div id="tim19"    >19</div>
+    <div id="tim20"    >20</div>
+    <div id="tim21"    >21</div>
+    <div id="tim22"    >22</div>
+    <div id="tim23"    >23</div>
+    <div id="tim24"    >24</div>
+
+    <div id="ac2_am"    >AC２時側出力</div>
+    <div id="ac1_am"    >AC1時側出力</div>
+    <div id="inv_am"    >インバータ強制動作</div>
+    <div id="chg_am"    >充電</div>
+    <div id="usb_am"    >USB充電</div>
+
+    <div id="ac2_emp1"    >無し</div>
+    <div id="ac1_emp1"    >無し</div>
+    <div id="inv_emp1"    >無し</div>
+    <div id="chg_emp1"    >無し</div>
+    <div id="usb_emp1"    >無し</div>
+
+    <div id="sch1"></div>
+
+
+
+    <div id="ac2_pm"    >AC２時側出力</div>
+    <div id="ac1_pm"    >AC1時側出力</div>
+    <div id="inv_pm"    >インバータ強制動作</div>
+    <div id="chg_pm"    >充電</div>
+    <div id="usb_pm"    >USB充電</div>
+
+    <div id="ac2_emp2"    >無し</div>
+    <div id="ac1_emp2"    >無し</div>
+    <div id="inv_emp2"    >無し</div>
+    <div id="chg_emp2"    >無し</div>
+    <div id="usb_emp2"    >無し</div>
+
+  </div>
+
+  <div id="schedule_cnt"> <!-- コンテナ -->
+    <div id="schedule_solar"    >太陽光発電ON/OFF</div>
+    <div id="schedule_input"    >スケジュール入力</div>
+    <div id="schedule_edit"    >スケジュール編集</div>
+    <div id="schedule_save"    >
+      <div class="std-btn_blu">保存</div>
+    </div>
+  </div>
+</div>
+
+<!-- ####################  ネットワーク設定  ####################  -->
+
+<div id="net-area">
+  <div id="net_selection">
+    <div  class="circle">
+      <div id="lan_setup"   class="net_content"></div>
+      <div id="wifi_setup"  class="net_content"></div>
+      <div id="dhcp_setup"  class="net_content"></div>
+      <div id="mail_setup"  class="net_content"></div>
+      <div id="ntp_setup"   class="net_content"></div>
+      <div id="loute_setup" class="net_content"></div>
+    </div>
+  </div>
+
+  <div id="container_lan_static"> <!-- コンテナ -->
+    <div id="lan_static"     >ローカルLAN</div>
+    <div id="lan_pppoe_off"     >PPPoE</div>
+    <div id="lan_ipaddr"   >IPアドレス</div>
+    <div id="lan_mask"       >ネットマスク</div>
+    <div id="lan_df-gw"       >デフォルトゲートウエイ</div>
+    <div id="lan_dns1"     >DNSサーバー 1</div>
+    <div id="lan_dns2"      >DNSサーバー 2</div>
+    <div id="lan_dns3"     >DNSサーバー 3</div>
+    <div id="lan_up"     >接続</div>
+    <div id="lan_save"     >保存</div>
+
+    <div id="set_ipaddr"   ></div>
+    <div id="set_mask"       ></div>
+    <div id="set_df-gw"       ></div>
+    <div id="set_dns1"     ></div>
+    <div id="set_dns2"      ></div>
+    <div id="set_dns3"     ></div>
+    <div id="set_dns-auto"     >DNS自動</div>
+  </div>
+</div>
+
+
+
+<!-- ####################  A/D誤差調整  ####################  -->
+<div id="ad-area">
+  <div id="ad-setup"> <!-- コンテナ -->
+
+    <div id="ad_addition"   >
+      <div class="std-btn_blu">ポイント追加</div>
+    </div>
+    <div id="ad_edit"       >
+      <div class="std-btn_blu">ポイント編集</div>
+    </div>
+    <div id="ad_gain"       >ゲイン</div>
+    <div id="ad_offset"     >オフセット</div>
+    <div id="ad_setup"      >
+      <div class="std-btn_blu">セットアップ</div>
+    </div>
+    <div id="chart_ad"></div>
+    <div id="chart_err"></div>
+  </div>
+</div>
+
+<div id="add_point-area">
+  <div>
+    <p id="addp-title">測定ポイントの追加</p>
+    <div  id="new_point">
+      <div class="frame-sp"></div>
+      <input id= "add_adpoint" class="input_text" type="number" step="0.1" required></input>
+    </div>
+    <div id="add_point-btn"  class="button-sp"><a href="#">決定</a></div>
+  </div>
+</div>
+
+<!-- ####################  PV表示  ####################  -->
+
+<div id="pv-area">
+  <div>
+
+    <div id="i_v-chart"></div>
+
+    <div id="serial_parallel-area"> <!-- コンテナ -->
+
+      <div>
+        <div>*</div>
+        <div>1-1</div>
+        <div></div>
+        <div>1-2</div>
+        <div></div>
+        <div>1-3</div>
+        <div></div>
+        <div>1-4</div>
+        <div></div>
+        <div>1-5</div>
+        <div></div>
+        <div>1-6</div>
+        <div></div>
+        <div>1-7</div>
+        <div></div>
+        <div>1-8</div>
+        <div></div>
+        <div>1-9</div>
+        <div></div>
+        <div>1-e</div>
+        <div>*</div>
+      </div>
+
+      <div>
+        <div>*</div>
+        <div>2-1</div>
+        <div></div>
+        <div>2-2</div>
+        <div></div>
+        <div>2-3</div>
+        <div></div>
+        <div>2-4</div>
+        <div></div>
+        <div>2-5</div>
+        <div></div>
+        <div>2-6</div>
+        <div></div>
+        <div>2-7</div>
+        <div></div>
+        <div>2-8</div>
+        <div></div>
+        <div>2-9</div>
+        <div></div>
+        <div>2-e</div>
+        <div>*</div>
+      </div>
+
+      <div>
+        <div>*</div>
+        <div>3-1</div>
+        <div></div>
+        <div>3-2</div>
+        <div></div>
+        <div>3-3</div>
+        <div></div>
+        <div>3-4</div>
+        <div></div>
+        <div>3-5</div>
+        <div></div>
+        <div>3-6</div>
+        <div></div>
+        <div>3-7</div>
+        <div></div>
+        <div>3-8</div>
+        <div></div>
+        <div>3-9</div>
+        <div></div>
+        <div>3-e</div>
+        <div>*</div>
+      </div>
+
+      <div>
+        <div>*</div>
+        <div>4-1</div>
+        <div></div>
+        <div>4-2</div>
+        <div></div>
+        <div>4-3</div>
+        <div></div>
+        <div>4-4</div>
+        <div></div>
+        <div>4-5</div>
+        <div></div>
+        <div>4-6</div>
+        <div></div>
+        <div>4-7</div>
+        <div></div>
+        <div>4-8</div>
+        <div></div>
+        <div>4-9</div>
+        <div></div>
+        <div>4-e</div>
+        <div>*</div>
+      </div>
+
+      <div>
+        <div>*</div>
+        <div>5-1</div>
+        <div></div>
+        <div>5-2</div>
+        <div></div>
+        <div>5-3</div>
+        <div></div>
+        <div>5-4</div>
+        <div></div>
+        <div>5-5</div>
+        <div></div>
+        <div>5-6</div>
+        <div></div>
+        <div>5-7</div>
+        <div></div>
+        <div>5-8</div>
+        <div></div>
+        <div>5-9</div>
+        <div></div>
+        <div>5-e</div>
+        <div>*</div>
+      </div>
+
+      <div>
+        <div>*</div>
+        <div>6-1</div>
+        <div></div>
+        <div>6-2</div>
+        <div></div>
+        <div>6-3</div>
+        <div></div>
+        <div>6-4</div>
+        <div></div>
+        <div>6-5</div>
+        <div></div>
+        <div>6-6</div>
+        <div></div>
+        <div>6-7</div>
+        <div></div>
+        <div>6-8</div>
+        <div></div>
+        <div>6-9</div>
+        <div></div>
+        <div>6-e</div>
+        <div>*</div>
+      </div>
+
+      <div>
+        <div>*</div>
+        <div>7-1</div>
+        <div></div>
+        <div>7-2</div>
+        <div></div>
+        <div>7-3</div>
+        <div></div>
+        <div>7-4</div>
+        <div></div>
+        <div>7-5</div>
+        <div></div>
+        <div>7-6</div>
+        <div></div>
+        <div>7-7</div>
+        <div></div>
+        <div>7-8</div>
+        <div></div>
+        <div>7-9</div>
+        <div></div>
+        <div>7-e</div>
+        <div>*</div>
+      </div>
+
+      <div>
+        <div>*</div>
+        <div>8-1</div>
+        <div></div>
+        <div>8-2</div>
+        <div></div>
+        <div>8-3</div>
+        <div></div>
+        <div>8-4</div>
+        <div></div>
+        <div>8-5</div>
+        <div></div>
+        <div>8-6</div>
+        <div></div>
+        <div>8-7</div>
+        <div></div>
+        <div>8-8</div>
+        <div></div>
+        <div>8-9</div>
+        <div></div>
+        <div>8-e</div>
+        <div>*</div>
+      </div>
+
+      <div>
+        <div>*</div>
+        <div>9-1</div>
+        <div></div>
+        <div>9-2</div>
+        <div></div>
+        <div>9-3</div>
+        <div></div>
+        <div>9-4</div>
+        <div></div>
+        <div>9-5</div>
+        <div></div>
+        <div>9-6</div>
+        <div></div>
+        <div>9-7</div>
+        <div></div>
+        <div>9-8</div>
+        <div></div>
+        <div>9-9</div>
+        <div></div>
+        <div>9-e</div>
+        <div>*</div>
+      </div>
+
+      <div>
+        <div>*</div>
+        <div>e-1</div>
+        <div></div>
+        <div>e-2</div>
+        <div></div>
+        <div>e-3</div>
+        <div></div>
+        <div>e-4</div>
+        <div></div>
+        <div>e-5</div>
+        <div></div>
+        <div>e-6</div>
+        <div></div>
+        <div>e-7</div>
+        <div></div>
+        <div>e-8</div>
+        <div></div>
+        <div>e-9</div>
+        <div></div>
+        <div>e-e</div>
+        <div>*</div>
+      </div>
+
+
+    </div>
+
+    <div id="pv_s-p_set">
+         "シリアル－パラレル　指定"
+    </div>
+
+    <div id="pv_total-area">
+         "合計電力"
+    </div>
+
+    <div id="pv_single-area">
+      "単版"
+    </div>
+
+    <div id="pv_passage-chart">
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ####################  出力コントロール（スイッチ）  ####################  -->
+
+<div id="switch-area">
+  <div>
+
+    <div id="zero_crossing-area">
+      <div>
+        <div id="zero_on">
+        </div>
+        <div id="zero_off">
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<script src="js/theme.js"></script>
+    <div id="change_time-area">
+      <div>
+        <div id="change_time-set">
+        </div>
+      </div>
+    </div>
+
+    <div id="blackout-area">
+      <div>
+        <div id="blackout-backup">
+        </div>
+        <div id="backup_time-set">
+        </div>
+        <div id="blackout-zero">
+        </div>
+      </div>
+    </div>
+
+    <div id="decision_switch">
+<!--          "決定"-->
+    </div>
+
+    <div id="switch_operation-area">
+      <div>
+        <div id="switch_ac-in">
+        </div>
+        <div id="switch_ac-out">
+        </div>
+        <div id="switch_inverter">
+        </div>
+        <div id="switch_arrow1">
+        </div>
+        <div id="switch_arrow2">
+        </div>
+        <div id="switch_arrow2-2">
+        </div>
+        <div id="switch_arrow3">
+        </div>
+        <div id="switch_arrow3-2">
+        </div>
+        <div id="switch_arrow_off">
+        </div>
+
+
+      </div>
+    </div>
+
+    <div id="switch_passage-chart">
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- ####################  充電器  ####################  -->
+
+<div id="charger-area">
+  <div>
+
+    <div id="charger_main-area">
+<svg viewBox="0 0 100 100" 
+     class="main">
+  <path stroke="#092951"
+        stroke-width="1"
+        fill="#092951"
+        d="M 20 30
+           l 20 0
+           l -15 -20  
+           z" />
+  <line stroke="#092951"
+        x1="90"
+        y1="45"
+        x2="10"
+        y2="30" />
+  <rect stroke="#a5bf23"
+        stroke-width="2"
+        fill="none"
+        width="20"
+        height="20"
+        x="60"
+        y="45"
+        rx="3"
+        ry="3"　/>
+</svg>    </div>
+    <div id="spare_charge">
+    </div>
+    <div id="biggest_charging_current">
+    </div>
+    <div id="biggest_charging_voltage">
+    </div>
+    <div id="floating_charging_voltage">
+    </div>
+    <div id="charge_start">
+    </div>
+    <div id="charge_stop">
+    </div>
+
+    <div id="charge_completion_current">
+    </div>
+
+    <div id="charger_observ-area">
+    </div>
+    <div id="charger_operation-area">
+    </div>
+
+    <div id="brownout_charge_start">
+    </div>
+    <div id="charger_brownout_voltage">
+    </div>
+    <div id="charger_practicable_power">
+    </div>
+    <div id="charger_sleep">
+    </div>
+    <div id="charger_pfc_state">
+    </div>
+
+    <div id="charger_result-area">
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ####################  MPPT充電器  ####################  -->
+<div id="mppt-area">
+  <div>
+
+    <div id="mppt_main-area">
+    </div>
+    <div id="mppt_spare_charge">
+    </div>
+    <div id="mppt_biggest_charging_current">
+    </div>
+    <div id="mppt_biggest_charging_voltage">
+    </div>
+    <div id="mppt_floating_charging_voltage">
+    </div>
+    <div id="mppt_charge_start">
+    </div>
+    <div id="mppt_charge_stop">
+    </div>
+    <div id="mppt_charge_completion_current">
+    </div>
+
+    <div id="mppt_observ-area">
+    </div>
+    <div id="mppt_operation-area">
+    </div>
+
+    <div id="mppt_brownout_charge_start">
+    </div>
+    <div id="mppt_brownout_voltage">
+    </div>
+    <div id="mppt_practicable_power">
+    </div>
+    <div id="mppt_sleep">
+    </div>
+    <div id="mppt_charger_pfc_state">
+    </div>
+
+    <div id="mppt_passage-chart">
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ####################  バッテリー  ####################  -->
+
+<div id="battery-area">
+  <div id="battery-model">
+
+    <div id="battery_status-area">
+    </div>
+
+    <div id="battery_head"></div>
+    <div id="battery_body"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div id="battery_current"></div>
+    <div id="battery_voltage"></div>
+
+    <div id="battery_operation-area">
+    </div>
+
+    <div id="battery_biggest_current"></div>
+    <div id="battery_biggest_current-mail"></div>
+    <div id="battery_biggest_voltage"></div>
+    <div id="battery_biggest_voltage-mail"></div>
+    <div id="battery_rise_current"></div>
+    <div id="battery_rise_current-mail"></div>
+    <div id="battery_brownout"></div>
+    <div id="battery_brownout-mail"></div>
+    <div id="battery_low_voltage"></div>
+    <div id="battery_low_voltage-mail"></div>
+
+
+
+    <div id="battery_passage-chart">
+    </div>
+
+  </div>
+</div>
+
+<!-- ####################  2次側AC出力  ####################  -->
+
+<div id="snd_ac-area">
+  <div>
+    <div id="sndac_line-icon"></div>
+    <div id="sndac_line-area"></div>
+    <div id="sndac_line-amp"></div>
+    <div id="sndac_inv-icon"></div>
+    <div id="sndac_inv-area"></div>
+    <div id="sndac_inv-amp"></div>
+    <div id="sndac_sync"></div>
+    <div id="sndac_outlet-icon"></div>
+    <div id="sndac_outlet-area"></div>
+       <!--  --- 矢印 --- -->
+    <div id="sndac_arrow1-1"></div>
+    <div id="sndac_arrow1-2"></div>
+    <div id="sndac_arrow1-3"></div>
+    <div id="sndac_arrow2-1"></div>
+    <div id="sndac_arrow2-2"></div>
+    <div id="sndac_arrow2-3"></div>
+    <div id="sndac_arrow2-4"></div>
+    <div id="sndac_arrow3-1"></div>
+    <div id="sndac_arrow3-2"></div>
+    <div id="sndac_arrow3-3"></div>
+    <div id="sndac_off"></div>
+
+    <div id="sndac_passage-chart">
+    </div>
+
+  </div>
+</div>
+
+<!-- ####################  Signin  ####################  -->
+
+<div id="login">
+  <div>
+    <p class="form-title">Signin</p>
+    <div class="userid-area"></div>
+    <div class="userid">
+      <input class="name-in" type="text" name="userid" value="" placeholder="Username"  />
+    </div>
+    <div class="user-icon">
+      <i class="fa-lg fa fa-user"></i>
+    </div>
+
+    <div class="password-area"></div>
+    <div class="password">
+      <input class="password-in"type="password" name="password" maxlength="64" placeholder="Password" />
+    </div>
+    <div class="password-icon">
+      <i class="fa-lg fa-rotate-45 fa fa-key"></i>
+    </div>
+    <div id="btn-login"  class="button-sp"><a href="#">Signin</a></div>
+    <div id="btn-cancel" class="button-sp"><a href="#">Cancel</a></div>
+  </div>
+</div>
+
 
 </body>
 </html>
