@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INTI DEMONSTRATION</title>
+<link href="css/vendor/font-awesome.min.css" rel="stylesheet"> <!-- アイコンをフォントで表示 -->
+<link href="css/inti.css" rel="stylesheet">
+<script src="js/vendor/jquery-2.2.4.min.js"></script>
+<script src="js/vendor/Chart.min.js"></script>
+<script src="js/inti.js"></script>
+
+
+</head>
+<body>
+  <div id="container">               <!-- 全体を乗せるコンテナ  -->
+    <div id="topnav">                       <!-- 最上段の小さな案内バー -->
+      <p>top nav</p>
+    </div>                                  <!-- ナビバー終わり -->
+    <div id="header">                       <!-- 全体のページヘッダー -->
+      <span><img class="text-logo" src="img/logo1.png"></span>
+    </div>                                   <!-- ヘッダー終わり -->
+
+    <div id="main">                          <!-- メインコンテナー -->
+      <!-- サイドバー　-->
+      <div id="sidebar">                     <!-- サイドバー -->
+
+        <!-- 上部ロゴ -->
+        <div id="sidebar-header">                     <!-- サイドバーのヘッダー -->
+          <h3>Sidebar Header</h3>
+        </div>                                        <!-- サイドバー、ヘッダー終わり -->
+        <div id="accordion">                          <!-- アコーディオン -->
+            <!-- サイドバー 開始 -->
+          <ul>
+            <!-- Configuration -->
+            <li class="navi">
+              <a href="#Configuration"><i class="fa fa-cog"></i> Configuration</a>
+              <ul>
+                <li><a href="#"><i class="fa fa-car"></i>LAN Network</a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i>WiFi Network</a></li>
+                <li><a href="#"><i class="fa fa-credit-card"></i>Time setting</a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i>Mail</a></li>
+                <li><a href="#Configuration--paramTool"><i class="fa fa-heart-o"></i>Parameter setting tool</a></li>
+              </ul>
+            </li>
+            <!-- Inverter -->
+            <li class="navi">
+              <a href="#inverter"><i class="fa fa-file-text"></i><span class="text"> Inverter</span></a>
+              <ul>
+                <li><a href="#"><i class="fa fa-car"></i>State</a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i>Config</a></li>
+                <li><a href="#inverter--parameter" class="resPrm"><i class="fa fa-key"></i>Parameter setting of A/D</a></li>
+                <li><a href="#inverter--monitor"><i class="fa fa-sign-in"></i>Monitor</a></li>
+              </ul>
+            </li>
+            <!-- Charger -->
+            <li class="navi">
+              <a href="#charger"><i class="fa fa-file-text"></i><span class="text"> Charger</span></a>
+              <ul>
+                <li><a href="#"><i class="fa fa-lock"></i>State</a></li>
+                <li><a href="#"><i class="fa fa-lock"></i>Config</a></li>
+                <li><a href="#charger--parameter"><i class="fa fa-key"></i>Parameter setting of A/D</a></li>
+                <li><a href="#charger--monitor"><i class="fa fa-sign-in"></i>Monitor</a></li>
+              </ul>
+            </li>
+            <!-- PV Charger -->
+            <li class="navi">
+              <a href="#pv-charger"><i class="fa fa-sun-o"></i><span class="text">PV Charger</span></a>
+              <ul>
+                <li><a href="#photovoltaics-panel"><i class="fa fa-indent"></i>Photovoltaics Panel</a></li>
+                <li><a href="#"><i class="fa fa-tags"></i>Charge to a battery</a></li>
+                <li><a href="#"><i class="fa fa-battery-half"></i>Battery setting</a></li>
+                <li><a href="#"><i class="fa fa-pencil"></i>Charge way designation</a></li>
+                <li><a href="#"><i class="fa fa-pencil"></i>Setting of a load</a></li>
+                <li><a href="#pv-charger--parameter" class="resPrm"><i class="fa fa-pencil"></i>Parameter setting of A/D</a></li>
+                <li><a href="#pv-charger--monitor"><i class="fa fa-pencil"></i>Monitor</a></li>
+              </ul>
+            </li>
+
+            <li class="navi">
+              <a href="#"><i class="fa fa-signal"></i><span class="text">Panel</span></a>
+              <ul>
+                <li><a href="#"><i class="fa fa-random"></i>PANEL</a></li>
+                <li><a href="#"><i class="fa fa-retweet"></i>xChart</a></li>
+                <li><a href="#"><i class="fa fa-bar-chart-o"></i>Monitor</a></li>
+              </ul>
+            </li>
+
+            <li class="navi">
+              <a href="#output"><i class="fa fa-briefcase"></i><span class="text"> Output</span></a>
+              <ul>
+                <li><a href="#"><i class="fa fa-align-left"></i>Progress</a></li>
+                <li><a href="#"><i class="fa fa-outdent"></i>Nestable Lists</a></li>
+                <li><a href="#"><i class="fa fa-list"></i>Elements</a></li>
+                <li><a href="#output--parameter" class="resPrm"><i class="fa fa-list-alt"></i>Parameter setting of A/D</a></li>
+                <li><a href="#output--monitor"><i class="fa fa-th"></i>Monitor</a></li>
+              </ul>
+            </li>
+
+            <li id="navi--remote" class="navi">
+              <a href="#"><i class="fa fa-life-bouy"></i><span class="text"> Remote</span></a>
+              <ul>
+                <li><a href="#"><i class="fa fa-list-alt"></i>Panels</a></li>
+                <li><a href="#"><i class="fa fa-th"></i>Monitor</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>                                        <!-- アコーディオン終わり -->
+        <div id="sidebar-footer"></div>               <!-- サイドバーのフッター -->
+      </div>                                   <!-- サイドバー　終わり -->
+
+      <div id="contents">                      <!-- コンテンツパート　各機器 -->
+        <div id="graph">                     <!-- 小さな４連メーター -->
+        <!-- メーター -->
+          <ul>                                  <!-- バッテリーメーター -->
+            <li>
+              <div class="title">Battely</div>           <!-- タイトル -->
+              <div class="bar">
+                <div class="meter meter-Battely"></div>
+              </div>
+              <div class="desc">50% of 100%</div>
+            </li>
+            <li>                                         <!-- 消費電力メーター -->
+              <div class="title">Conspion</div>
+              <div class="bar">
+                <div class="meter meter-Conspion"></div>
+              </div>			
+              <div class="desc">75W of 100W</div>
+            </li>
+            <li>                                           <!-- 充電メーター -->
+              <div class="title">Chage</div>
+              <div class="bar">
+                <div class="meter meter-Chage"></div>
+              </div>
+              <div class="desc">25W of 100W</div>
+            </li>
+            <li>                                           <!-- 太陽光発電メーター -->
+              <div class="title">PV</div>
+              <div class="bar">
+                <div class="meter meter-PV"></div>
+              </div>
+              <div class="desc">90W of 100W</div>
+            </li>
+          </ul>
+        </div>                                           <!-- メーター終わり -->
+<!-----******************** ここから、各装置で変化 ***************************------------------>
+
+
+<!-----******************** コンフィグレーション *****************************------------------>
+
+        <div id="Configuration" class="equipment">               <!-- Configuration -->
+          <div class="equipment-header">
+            <div class="equipment-name">                  <!-- 装置名 -->
+              <span><i class="fa fa-indent"></i>Configuration</span>
+              <p><i class="fa fa-indent"></i>Configuration</p>
+            </div>
+            <div class="equipment-info">                  <!-- 装置インフォメーション -->
+              <ul>
+                <li><p><i class="fa fa-indent"></i>Configuration</p></li>
+                <li><p><i class="fa fa-indent"></i>Configuration</p></li>
+                <li><p><i class="fa fa-indent"></i>Configuration</p></li>
+                <li><p><i class="fa fa-indent"></i>Configuration</p></li>
+              </ul>
+            </div>
+
+          </div>
+
+<!------------------------- ここから、各項目で変化 --------------------------------------------->
+<!------------------------- コンフィグ・パラメーター設定ツール --------------------->
+
+        </div>
+
+<!-----******************** インバーター *****************************------------------>
+
+        <div id="inverter" class="equipment">               <!-- Inverter -->
+          <div class="equipment-header">
+            <div class="equipment-name">                  <!-- 装置名 -->
+              <span><i class="fa fa-indent"></i>Inverter</span>
+              <p><i class="fa fa-indent"></i>Inverter</p>
+            </div>
+            <div class="equipment-info">                  <!-- 装置インフォメーション -->
+              <ul>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+              </ul>
+            </div>
+            <div class="movement-switch">                 <!-- 装置動作スイッチ -->
+              <div class="switch-name">
+                <p><i class="fa fa-indent"></i>
+                <b>State designation of equipment</b><br>ON is functioning and OFF stops.
+                </p>
+              </div>
+              <div class="radio-group clearfix">          <!-- ラジオボタン -->
+                <div>
+                  <input id="Radio11" type="radio" class="radio" name="radio" value="r1"  />
+                  <label for="Radio1">ON</label>
+                </div>
+                <div>
+                  <input id="Radio22" type="radio" class="radio" name="radio" value="r2" checked="check" />
+                  <label for="Radio2">OFF</label>
+                </div>
+                <div>
+                  <input id="Radio33" type="radio" class="radio" name="radio" value="r3" />
+                  <label for="Radio3">SLEEP</label>
+                </div>
+              </div>                                       <!-- ラジオボタン終わり -->
+
+            </div>
+          </div>
+
+<!------------------------- ここから、各項目で変化 --------------------------------------------->
+<!------------------------- インバーター・パラメーター設定画面 --------------------->
+          <div id="inverter--parameter" class="variously">
+
+            <div class="variously-header">
+              <span><i class="fa fa-indent"></i>DC-AC Inverter A/D parameter settings</span>
+            </div>
+            <div class="variously-contents" style="width:100%">
+
+              <div class="prm_set">
+                <div>
+                  <p>Designate the established item.</p>
+                </div>
+                <button type="button" id="iset_ac_v1">Set Output-AC(100V) voltage</button>
+                <button type="button" id="iset_ac_i1">Set Output-AC(100V) current</button>
+                <button type="button" id="iset_ac_v2">Set Output-AC(200V) voltage</button>
+                <button type="button" id="iset_ac_i2">Set Output-AC(200V) current</button>
+                <button type="button" id="iset_bat_v">Set Battery voltage</button>
+                <button type="button" id="iset_bat_i">Set Battery current</button>
+                <button type="button" id="iset_hv1">Set HV(100V) voltage</button>
+                <button type="button" id="iset_hv2">Set HV(200V) voltage</button>
+              </div>
+
+              <div class="prm_cmp">
+                <div class="prmDesignated">
+                  <div><p>Add the designated voltage.</p></div>
+                  <button type="button" class="GrTagt"></button>
+                  <button type="button" class="GrCmpFin">Measurement completion</button>
+                  <button type="button" class="GrCmpRst">Reset</button>
+                </div>
+                <div class="prmAdjustment">
+                  <div class="para-radio-group">          <!-- ラジオボタン -->
+                    <div class="GainUp10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-90"></i></label>
+                    </div>
+                    <div class="GainUp u_d">
+                      <label><i class="fa fa-play fa-rotate-270"></i></label>
+                    </div>
+                    <div class="val_u_d">
+                      <label><b>GAIN </b><span class="prmGainBt"></span> %</label>
+                    </div>
+                    <div class="GainDown u_d">
+                      <label><i class="fa fa-play fa-rotate-90"></i></label>
+                    </div>
+                    <div class="GainDown10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-270"></i></label>
+                    </div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="OffsetUp10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-90"></i></label>
+                    </div>
+                    <div class="OffsetUp u_d">
+                      <label><i class="fa fa-play fa-rotate-270"></i></label>
+                    </div>
+                    <div class="val_u_d">
+                      <label><b>OFFSET </b><span class="prmOffsetBt"></span> Digit</label>
+                    </div>
+                    <div class="OfsetDown u_d">
+                      <label><i class="fa fa-play fa-rotate-90"></i></label>
+                    </div>
+                    <div class="OfsetDown10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-270"></i></label>
+                    </div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+
+                  <button type="button" class="GrCmpRst">Reset</button>
+                </div>
+                <div style="width:80%"><canvas id="iPramGr" /></div>
+                <div style="width:80%"><canvas id="iPrmErrGr" /></div>
+              </div>
+
+            </div>
+          </div>
+
+<!------------------------- インバーター モニター画目 ------------------------------------------------------->
+          <div id="inverter--monitor" class="variously">
+            <div class="variously-header">
+              <span><i class="fa fa-indent"></i>Inverter Monitor</span>
+            </div>
+
+            <div class="variously-contents">
+              <div class="monitor">
+                <table>
+                  <caption>State of controller</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="istat_d"></td><td class="istat_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Monitoring</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="imon_acv_d"></td><td class="imon_acv_v"></td></tr>
+                  <tr><td class="imon_aci_d"></td><td class="imon_aci_v"></td></tr>
+                  <tr><td class="imon_batv_d"></td><td class="imon_batv_v"></td></tr>
+                  <tr><td class="imon_bati_d"></td><td class="imon_bati_v"></td></tr>
+                  <tr><td class="imon_hv_d"></td><td class="imon_hv_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Monitoring</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="iprm_acv_g_d"></td><td class="iprm_acv_g_v"></td></tr>
+                  <tr><td class="iprm_acv_o_d"></td><td class="iprm_acv_o_v"></td></tr>
+                  <tr><td class="iprm_aci_g_d"></td><td class="iprm_aci_g_v"></td></tr>
+                  <tr><td class="iprm_aci_o_d"></td><td class="iprm_aci_o_v"></td></tr>
+                  <tr><td class="iprm_batv_g_d"></td><td class="iprm_batv_g_v"></td></tr>
+                  <tr><td class="iprm_batv_o_d"></td><td class="iprm_batv_o_v"></td></tr>
+                  <tr><td class="iprm_bati_g_d"></td><td class="iprm_bati_g_v"></td></tr>
+                  <tr><td class="iprm_bati_o_d"></td><td class="iprm_bati_o_v"></td></tr>
+                  <tr><td class="iprm_hv_g_d"></td><td class="iprm_hv_g_v"></td></tr>
+                  <tr><td class="iprm_hv_o_d"></td><td class="iprm_hv_o_v"></td></tr>
+
+                </table>
+              </div>
+
+            </div>
+          </div>
+<!---------------------------------------------------->
+
+        </div>                                           <!-- end row (main)-->
+
+<!---------------------------------------------------------------------------------------------->
+
+<!-----******************** 充電器 *****************************------------------>
+
+        <div id="charger" class="equipment">               <!-- 出力切り替えスイッチ -->
+          <div class="equipment-header">
+            <div class="equipment-name">                  <!-- 装置名 -->
+              <span><i class="fa fa-indent"></i>Charger</span>
+              <p><i class="fa fa-indent"></i>Charger</p>
+            </div>
+            <div class="equipment-info">                  <!-- 装置インフォメーション -->
+              <ul>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+              </ul>
+            </div>
+            <div class="movement-switch">                 <!-- 装置動作スイッチ -->
+              <div class="switch-name">
+                <p><i class="fa fa-indent"></i>
+                <b>State designation of equipment</b><br>ON is functioning and OFF stops.
+                </p>
+              </div>
+              <div class="radio-group clearfix">          <!-- ラジオボタン -->
+                <div>
+                  <input id="Radio11" type="radio" class="radio" name="radio" value="r1"  />
+                  <label for="Radio1">ON</label>
+                </div>
+                <div>
+                  <input id="Radio22" type="radio" class="radio" name="radio" value="r2" checked="check" />
+                  <label for="Radio2">OFF</label>
+                </div>
+                <div>
+                  <input id="Radio33" type="radio" class="radio" name="radio" value="r3" />
+                  <label for="Radio3">SLEEP</label>
+                </div>
+              </div>                                       <!-- ラジオボタン終わり -->
+
+            </div>
+          </div>
+
+<!------------------------- ここから、各項目で変化 --------------------------------------------->
+<!------------------------- 充電器・パラメーター設定画面 --------------------->
+          <div id="charger--parameter" class="variously">
+
+            <div class="variously-header">
+              <span><i class="fa fa-indent"></i>Battery Charger A/D parameter settings</span>
+            </div>
+
+            <div class="variously-contents">
+
+<!---------  PV 入力　電圧 ------------------------>
+              <div class="panel-parameter">                  <!-- ミニパネル -->
+                <div class="plan setting">
+                  <h3>PV input<br>voltage<span>10.0V</span></h3>
+                  <p class="state" href="">Set!</p>
+                    <p><b>GAIN</b> percent(%)</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>100</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                    <p><b>OFFSET</b> A/D Digit</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>10</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                </div>
+              </div>                                        <!-- ミニパネル終わり -->
+
+<!---------  PV 入力　電流 ------------------------>
+              <div class="panel-parameter">                  <!-- ミニパネル -->
+                <div class="plan setting">
+                  <h3>PV input<br>current<span>10.0A</span></h3>
+                  <p class="state" href="">Set!</p>
+                    <p><b>GAIN</b> percent(%)</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>100</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                    <p><b>OFFSET</b> A/D Digit</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>10</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                </div>
+              </div>                                        <!-- ミニパネル終わり -->
+
+<!---------  バッテリー　電圧 ------------------------>
+              <div class="panel-parameter">                  <!-- ミニパネル -->
+                <div class="plan setting">
+                  <h3>Battery<br>voltage<span>10.0V</span></h3>
+                  <p class="state" href="">Set!</p>
+                    <p><b>GAIN</b> percent(%)</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>100</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                    <p><b>OFFSET</b> A/D Digit</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>10</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                </div>
+              </div>                                        <!-- ミニパネル終わり -->
+
+
+<!---------  バッテリー　電流 ------------------------>
+              <div class="panel-parameter">                  <!-- ミニパネル -->
+                <div class="plan setting">
+                  <h3>Battery<br>current<span>10.0A</span></h3>
+                  <p class="state" href="">Set!</p>
+                    <p><b>GAIN</b> percent(%)</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>100</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                    <p><b>OFFSET</b> A/D Digit</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>10</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                </div>
+              </div>                                           <!-- ミニパネル終わり -->
+
+<!---------  外気温　温度 ------------------------>
+              <div class="panel-parameter">                  <!-- ミニパネル -->
+                <div class="plan setting">
+                  <h3>Temperature<br>outside<span>25.0℃</span></h3>
+                  <p class="state" href="">Set!</p>
+                    <p><b>GAIN</b> percent(%)</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>100</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                    <p><b>OFFSET</b> A/D Digit</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>10</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                </div>
+              </div>                                        <!-- ミニパネル終わり -->
+
+<!---------  負荷　電流 ------------------------>
+              <div class="panel-parameter">                  <!-- ミニパネル -->
+                <div class="plan setting">
+                  <h3>Load<br>current<span>10.0A</span></h3>
+                  <p class="state" href="">Set!</p>
+                    <p><b>GAIN</b> percent(%)</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>100</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                    <p><b>OFFSET</b> A/D Digit</p>
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-270"></i></label></div>
+                    <div class="val_u_d"><label>10</label></div>
+                    <div class="u_d"><label><i class="fa fa-play fa-rotate-90"></i></label></div>
+                    <div class="u_d"><label><i class="fa fa-backward fa-rotate-270"></i></label></div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                </div>
+              </div>                                        <!-- ミニパネル終わり -->
+
+              </div>                                        <!-- ミニパネル終わり -->
+          </div>
+
+
+<!------------------------- 充電器 モニター画目 ------------------------------------------------------->
+
+          <div id="charger--monitor" class="variously">
+
+            <div class="variously-header">
+              <span><i class="fa fa-indent"></i>Charger Monitor</span>
+            </div>
+
+            <div class="variously-contents">
+              <div class="monitor">
+                <table>
+                  <caption>State of controller</caption>
+                  <tr>
+                    <th>Description</th><th>Value</th><th>Unit</th>
+                  </tr>
+                  <tr>
+                    <td class="m_acv_d">State of controller</td>
+                    <td class="m_acv_v">sleep</td><td class="m_acv_u"></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+
+          </div>
+<!---------------------------------------------------->
+
+        </div>                                           <!-- end row (main)-->
+
+<!---------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+<!-----******************** 太陽光発電コントローラー *************************------------------>
+
+        <div id="pv-charger" class="equipment">           <!-- 太陽光発電画面 -->
+          <div class="equipment-header">
+            <div class="equipment-name">                  <!-- 装置名 -->
+              <span><i class="fa fa-indent"></i>Photovoltaics Charger</span>
+              <p><i class="fa fa-indent"></i>Which photovoltaic generation</p>
+            </div>
+            <div class="equipment-info">                  <!-- 装置インフォメーション -->
+              <ul>
+                <li><p><i class="fa fa-indent"></i>MPPT control is loaded.</p></li>
+                <li><p><i class="fa fa-indent"></i>boost and lowering voltage are possible.</p></li>
+                <li><p><i class="fa fa-indent"></i>The biggest electric current is 30A.</p></li>
+                <li><p><i class="fa fa-indent"></i>battery and PV are maximum voltage 100V.</p></li>
+              </ul>
+            </div>
+            <div class="movement-switch">                 <!-- 装置動作スイッチ -->
+              <div class="switch-name">
+                <p><i class="fa fa-indent"></i>
+                <b>State designation of equipment</b><br>ON is functioning and OFF stops.
+                </p>
+              </div>
+              <div class="radio-group clearfix">          <!-- ラジオボタン -->
+                <div>
+                  <input id="Radio11" type="radio" class="radio" name="radio" value="r1"  />
+                  <label for="Radio1">ON</label>
+                </div>
+                <div>
+                  <input id="Radio22" type="radio" class="radio" name="radio" value="r2" checked="check" />
+                  <label for="Radio2">OFF</label>
+                </div>
+                <div>
+                  <input id="Radio33" type="radio" class="radio" name="radio" value="r3" />
+                  <label for="Radio3">SLEEP</label>
+                </div>
+              </div>                                       <!-- ラジオボタン終わり -->
+
+            </div>
+          </div>
+
+<!------------------------- ここから、各項目で変化 --------------------------------------------->
+<!------------------------- 太陽光パネル画目 --------------------------------------------------->
+          <div id="photovoltaics-panel" class="variously">
+
+            <div class="variously-header">
+              <span><i class="fa fa-indent"></i>Photovoltaics Panel</span>
+            </div>
+            <div class="maxGen" >                <!-- ミニパネル -->
+              <div class="plan display">
+                <h3>Generating<br>POWER<span>3333.5W</span></h3>
+                <p class="state" href="">Fine!</p>         
+                <ul>
+                  <li><b>2000W</b> Maximum power</li>
+                  <li><b>120V</b> Generating voltage</li>
+                  <li><b>20A</b> Generating current</li>
+                </ul>
+              </div>
+            </div>                                        <!-- ミニパネル終わり -->
+            <div class="panel-established">                  <!-- ミニパネル -->
+              <div class="plan setting">
+                <h3>Maximum<br>generation<span>3333W</span></h3>
+<!--Establish the construction of the photovoltaic generation panel.-->
+                <p class="state" href="">Fine!</p>         
+                <ul>
+                  <li><b>2000W</b> Maximum power</li>
+                  <li><b>120V</b> Generating voltage</li>
+                  <li><b>20A</b> Generating current</li>
+                </ul>
+              </div>
+            </div>                                        <!-- ミニパネル終わり -->
+
+            <div id="graph-i-v">
+
+         <div style="width:100%">
+            <div>
+                <canvas id="chart1"/>
+            </div>
+        </div>
+ 
+
+
+            </div>
+          </div>
+
+<!------------------------- PVチャージコントローラー・パラメーター設定画面 --------------------->
+          <div id="pv-charger--parameter" class="variously">
+
+            <div class="variously-header">
+              <span><i class="fa fa-indent"></i>Photovoltaics Charger A/D parameter settings</span>
+            </div>
+            <div class="variously-contents" style="width:100%">
+
+              <div class="prm_set">
+                <div>
+                  <p>Designate the established item.</p>
+                </div>
+                <button type="button" id="mset_pv_v">Set PV voltage</button>
+                <button type="button" id="mset_pv_i">Set PV current</button>
+                <button type="button" id="mset_bat_v">Set Battery voltage</button>
+                <button type="button" id="mset_bat_i">Set Battery current</button>
+                <button type="button" id="mset_tmp">Set Temperature</button>
+                <button type="button" id="mset_load">Set Load current</button>
+              </div>
+
+              <div class="prm_cmp">
+                <div class="prmDesignated">
+                  <div><p>Add the designated voltage.</p></div>
+                  <button type="button" class="GrTagt"></button>
+                  <button type="button" class="GrCmpFin">Measurement completion</button>
+                  <button type="button" class="GrCmpRst">Reset</button>
+                </div>
+                <div class="prmAdjustment">
+                  <div class="para-radio-group">          <!-- ラジオボタン -->
+                    <div class="GainUp10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-90"></i></label>
+                    </div>
+                    <div class="GainUp u_d">
+                      <label><i class="fa fa-play fa-rotate-270"></i></label>
+                    </div>
+                    <div class="val_u_d">
+                      <label><b>GAIN </b><span class="prmGainBt"></span> %</label>
+                    </div>
+                    <div class="GainDown u_d">
+                      <label><i class="fa fa-play fa-rotate-90"></i></label>
+                    </div>
+                    <div class="GainDown10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-270"></i></label>
+                    </div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="OffsetUp10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-90"></i></label>
+                    </div>
+                    <div class="OffsetUp u_d">
+                      <label><i class="fa fa-play fa-rotate-270"></i></label>
+                    </div>
+                    <div class="val_u_d">
+                      <label><b>OFFSET </b><span class="prmOffsetBt"></span> Digit</label>
+                    </div>
+                    <div class="OfsetDown u_d">
+                      <label><i class="fa fa-play fa-rotate-90"></i></label>
+                    </div>
+                    <div class="OfsetDown10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-270"></i></label>
+                    </div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+
+
+                  <button type="button" class="GrCmpRst">Reset</button>
+                </div>
+                <div style="width:80%"><canvas id="mPramGr" /></div>
+                <div style="width:80%"><canvas id="mPrmErrGr" /></div>
+              </div>
+
+            </div>
+          </div>
+
+
+<!------------------------- MPPT モニタ 画面 --------------------------------------------------->
+          <div id="pv-charger--monitor" class="variously">
+
+            <div class="variously-header">
+              <span><i class="fa fa-indent"></i>Photovoltaics Charger Monitor</span>
+            </div>
+
+            <div class="variously-contents">
+              <div class="monitor">
+                <table>
+                  <caption>State of controller</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mstat_d"></td><td class="mstat_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Monitoring</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mmon_pvv_d"></td><td class="mmon_pvv_v"></td></tr>
+                  <tr><td class="mmon_pvi_d"></td><td class="mmon_pvi_v"></td></tr>
+                  <tr><td class="mmon_batv_d"></td><td class="mmon_batv_v"></td></tr>
+                  <tr><td class="mmon_bati_d"></td><td class="mmon_bati_v"></td></tr>
+                  <tr><td class="mmon_temp_d"></td><td class="mmon_temp_v"></td></tr>
+                  <tr><td class="mmon_load_d"></td><td class="mmon_load_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Scan control</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="scan_d"></td><td class="scan_v"></td></td></tr>
+                  <tr><td class="scnexe_d"></td><td class="scnexe_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Use battery indication</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mbat_d"></td><td class="mbat_v"></td></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Battery type in use</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mubat_d"></td><td class="mubat_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Specified battery specifications SPEC1</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mbtspc1_max_d"></td><td class="mbtspc1_max_v"></td></tr>
+                  <tr><td class="mbtspc1_up_d"></td><td class="mbtspc1_up_v"></td></tr>
+                  <tr><td class="mbtspc1_low_d"></td><td class="mbtspc1_low_v"></td></tr>
+                  <tr><td class="mbtspc1_min_d"></td><td class="mbtspc1_min_v"></td></tr>
+                  <tr><td class="mbtspc1_imax_d"></td><td class="mbtspc1_imax_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Specified battery specifications SPEC2</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mbtspc2_max_d"></td><td class="mbtspc2_max_v"></td></tr>
+                  <tr><td class="mbtspc2_up_d"></td><td class="mbtspc2_up_v"></td></tr>
+                  <tr><td class="mbtspc2_low_d"></td><td class="mbtspc2_low_v"></td></tr>
+                  <tr><td class="mbtspc2_min_d"></td><td class="mbtspc2_min_v"></td></tr>
+                  <tr><td class="mbtspc2_imax_d"></td><td class="mbtspc2_imax_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Specified battery specifications SPEC3</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mbtspc3_max_d"></td><td class="mbtspc3_max_v"></td></tr>
+                  <tr><td class="mbtspc3_up_d"></td><td class="mbtspc3_up_v"></td></tr>
+                  <tr><td class="mbtspc3_low_d"></td><td class="mbtspc3_low_v"></td></tr>
+                  <tr><td class="mbtspc3_min_d"></td><td class="mbtspc3_min_v"></td></tr>
+                  <tr><td class="mbtspc3_imax_d"></td><td class="mbtspc3_imax_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Specified battery specifications SPEC4</caption>
+                  <tr><th>Description</th><th>Value</th> </tr>
+                  <tr><td class="mbtspc4_max_d"></td><td class="mbtspc4_max_v"></td></tr>
+                  <tr><td class="mbtspc4_up_d"></td><td class="mbtspc4_up_v"></td></tr>
+                  <tr><td class="mbtspc4_low_d"></td><td class="mbtspc4_low_v"></td></tr>
+                  <tr><td class="mbtspc4_min_d"></td><td class="mbtspc4_min_v"></td></tr>
+                  <tr><td class="mbtspc4_imax_d"></td><td class="mbtspc4_imax_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Each limit indication</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mlmt_pvv_d"></td><td class="mlmt_pvv_v"></td></tr>
+                  <tr><td class="mlmt_pvi_d"></td><td class="mlmt_pvi_v"></td></tr>
+                  <tr><td class="mlmt_batv_d"></td><td class="mlmt_batv_v"></td></tr>
+                  <tr><td class="mlmt_bati_d"></td><td class="mlmt_bati_v"></td></tr>
+                  <tr><td class="mlmt_load_d"></td><td class="mlmt_load_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Specified charger system</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mmod_d"></td><td class="mmod_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Operation instruction of load</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mload_d"></td><td class="mload_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Time schedule of load operation</caption>
+                  <tr><th>Description</th><th>Value</th></tr>  
+                  <tr><td class="mldtim1t_d"></td><td class="mldtim1t_v"></td></tr>
+                  <tr><td class="mldtim1s_d"></td><td class="mldtim1s_v"></td></tr>
+                  <tr><td class="mldtim2t_d"></td><td class="mldtim2t_v"></td></tr>
+                  <tr><td class="mldtim2s_d"></td><td class="mldtim2s_v"></td></tr>
+                  <tr><td class="mldtim3t_d"></td><td class="mldtim3t_v"></td></tr>
+                  <tr><td class="mldtim3s_d"></td><td class="mldtim3s_v"></td></tr>
+                  <tr><td class="mldtim4t_d"></td><td class="mldtim4t_v"></td></tr>
+                  <tr><td class="mldtim4s_d"></td><td class="mldtim4s_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Control of the load time schedule</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mldexe_d"></td><td class="mldexe_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>A/D-Parameter</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="mprm_pvv_g_d">-</td><td class="mprm_pvv_g_v"></td></tr>
+                  <tr><td class="mprm_pvv_o_d">-</td><td class="mprm_pvv_o_v"></td></tr>
+                  <tr><td class="mprm_pvi_g_d">-</td><td class="mprm_pvi_g_v"></td></tr>
+                  <tr><td class="mprm_pvi_o_d">-</td><td class="mprm_pvi_o_v"></td></tr>
+                  <tr><td class="mprm_batv_g_d">-</td><td class="mprm_batv_g_v"></td></tr>
+                  <tr><td class="mprm_batv_o_d">-</td><td class="mprm_batv_o_v"></td></tr>
+                  <tr><td class="mprm_bati_g_d">-</td><td class="mprm_bati_g_v"></td></tr>
+                  <tr><td class="mprm_bati_o_d">-</td><td class="mprm_bati_o_v"></td></tr>
+                  <tr><td class="mprm_temp_g_d">-</td><td class="mprm_temp_g_v"></td></tr>
+                  <tr><td class="mprm_temp_o_d">-</td><td class="mprm_temp_o_v"></td></tr>
+                  <tr><td class="mprm_load_g_d">-</td><td class="mprm_load_g_v"></td></tr>
+                  <tr><td class="mprm_load_o_d">-</td><td class="mprm_load_o_v"></td></tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+<!---------------------------------------------------->
+
+        </div>                                           <!-- end row (main)-->
+
+<!-----******************** 出力切り替えスイッチ *****************************------------------>
+
+        <div id="output" class="equipment">               <!-- 出力切り替えスイッチ -->
+          <div class="equipment-header">
+            <div class="equipment-name">                  <!-- 装置名 -->
+              <span><i class="fa fa-indent"></i>Output switch</span>
+              <p><i class="fa fa-indent"></i>Output switch</p>
+            </div>
+            <div class="equipment-info">                  <!-- 装置インフォメーション -->
+              <ul>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+                <li><p><i class="fa fa-indent"></i>Photovoltaics Charger</p></li>
+              </ul>
+            </div>
+            <div class="movement-switch">                 <!-- 装置動作スイッチ -->
+              <div class="switch-name">
+                <p><i class="fa fa-indent"></i>
+                <b>State designation of equipment</b><br>ON is functioning and OFF stops.
+                </p>
+              </div>
+              <div class="radio-group clearfix">          <!-- ラジオボタン -->
+                <div>
+                  <input id="Radio11" type="radio" class="radio" name="radio" value="r1"  />
+                  <label for="Radio1">ON</label>
+                </div>
+                <div>
+                  <input id="Radio22" type="radio" class="radio" name="radio" value="r2" checked="check" />
+                  <label for="Radio2">OFF</label>
+                </div>
+                <div>
+                  <input id="Radio33" type="radio" class="radio" name="radio" value="r3" />
+                  <label for="Radio3">SLEEP</label>
+                </div>
+              </div>                                       <!-- ラジオボタン終わり -->
+
+            </div>
+          </div>
+
+<!------------------------- ここから、各項目で変化 --------------------------------------------->
+<!------------------------- 出力切り替え装置・パラメーター設定画面 ----------------------------->
+          <div id="output--parameter" class="variously">
+
+            <div class="variously-header">
+              <span><i class="fa fa-indent"></i>Output switch A/D parameter settings</span>
+            </div>
+            <div class="variously-contents" style="width:100%">
+
+              <div class="prm_set">
+                <div>
+                  <p>Designate the established item.</p>
+                </div>
+                <button type="button" id="sset_ac">Set AC voltage</button>
+                <button type="button" id="sset_inv">Set Inverter voltage</button>
+                <button type="button" id="sset_out">Set Output voltage</button>
+                <button type="button" id="sset_ct">Set Output current</button>
+              </div>
+
+              <div class="prm_cmp">
+                <div class="prmDesignated">
+                  <div><p>Add the designated voltage.</p></div>
+                  <button type="button" class="GrTagt"></button>
+                  <button type="button" class="GrCmpFin">Measurement completion</button>
+                  <button type="button" class="GrCmpRst">Reset</button>
+                </div>
+                <div class="prmAdjustment">
+
+
+                  <div class="para-radio-group">          <!-- ラジオボタン -->
+                    <div class="GainUp10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-90"></i></label>
+                    </div>
+                    <div class="GainUp u_d">
+                      <label><i class="fa fa-play fa-rotate-270"></i></label>
+                    </div>
+                    <div class="val_u_d">
+                      <label><b>GAIN </b><span class="prmGainBt"></span> %</label>
+                    </div>
+                    <div class="GainDown u_d">
+                      <label><i class="fa fa-play fa-rotate-90"></i></label>
+                    </div>
+                    <div class="GainDown10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-270"></i></label>
+                    </div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+                  <div class="para-radio-group clearfix">          <!-- ラジオボタン -->
+                    <div class="OffsetUp10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-90"></i></label>
+                    </div>
+                    <div class="OffsetUp u_d">
+                      <label><i class="fa fa-play fa-rotate-270"></i></label>
+                    </div>
+                    <div class="val_u_d">
+                      <label><b>OFFSET </b><span class="prmOffsetBt"></span> Digit</label>
+                    </div>
+                    <div class="OfsetDown u_d">
+                      <label><i class="fa fa-play fa-rotate-90"></i></label>
+                    </div>
+                    <div class="OfsetDown10 u_d">
+                      <label><i class="fa fa-backward fa-rotate-270"></i></label>
+                    </div>
+                  </div>                                       <!-- ラジオボタン終わり -->
+
+
+                  <button type="button" class="GrCmpRst">Reset</button>
+                </div>
+                <div style="width:80%"><canvas id="sPramGr" /></div>
+                <div style="width:80%"><canvas id="sPrmErrGr" /></div>
+              </div>
+
+            </div>
+          </div>
+
+<!------------------------- OUTPUT モニター画目 ------------------------------------------------------->
+
+          <div id="output--monitor" class="variously">
+
+            <div class="variously-header">
+              <span><i class="fa fa-indent"></i>Output switch Monitor</span>
+            </div>
+
+            <div class="variously-contents">
+              <div class="monitor">
+                <table>
+                  <caption>State of Output switch</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="sstat_d"></td><td class="sstat_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>State of Output switch</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="ssw_d"></td><td class="ssw_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>Monitoring</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="smon_ac_d"></td><td class="smon_ac_v"></td></tr>
+                  <tr><td class="smon_inv_d"></td><td class="smon_inv_v"></td></tr>
+                  <tr><td class="smon_out_d"></td><td class="smon_out_v"></td></tr>
+                  <tr><td class="smon_ct_d"></td><td class="smon_ct_v"></td></tr>
+                </table>
+              </div>
+
+              <div class="monitor">
+                <table>
+                  <caption>A/D-Parameter</caption>
+                  <tr><th>Description</th><th>Value</th></tr>
+                  <tr><td class="sprm_ac_g_d"></td><td class="sprm_ac_g_v"></td></tr>
+                  <tr><td class="sprm_ac_o_d"></td><td class="sprm_ac_o_v"></td></tr>
+                  <tr><td class="sprm_inv_g_d"></td><td class="sprm_inv_g_v"></td></tr>
+                  <tr><td class="sprm_inv_o_d"></td><td class="sprm_inv_o_v"></td></tr>
+                  <tr><td class="sprm_out_g_d"></td><td class="sprm_out_g_v"></td></tr>
+                  <tr><td class="sprm_out_o_d"></td><td class="sprm_out_o_v"></td></tr>
+                  <tr><td class="sprm_ct_g_d"></td><td class="sprm_ct_g_v"></td></tr>
+                  <tr><td class="sprm_ct_o_d"></td><td class="sprm_ct_o_v"></td></tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+<!---------------------------------------------------->
+
+        </div>                                           <!-- end row (main)-->
+
+<!---------------------------------------------------------------------------------------------->
+
+
+      </div>                                           <!-- end of col (Contents)-->
+    </div>                                           <!-- end row (main)-->
+
+    <div id="footer">
+      <p>Footer</p>
+    </div>
+  </div>                                         <!-- end containa -->
+</body>
+
+
+
+
+
+</html>
