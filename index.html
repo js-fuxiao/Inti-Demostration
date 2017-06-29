@@ -7,7 +7,6 @@
 <script src="js/lib/d3.min.js"></script>
 <script src="js/lib/c3.min.js"></script>
 <script src="js/inti.js"></script>
-<script src="js/chart.js"></script>
 <script src="js/chart_data.js"></script>
 <script src="lang/inti_information_ja.js"></script>
 <script src="lang/inti_information_cn.js"></script>
@@ -91,20 +90,25 @@ div { display: block; }
   <div id="chart-area">
                         <!-- 出力電力円グラフ -->
     <div class="chart" id="chart_outlet">
+
       <div class="circle-mask-outer left">
         <div class="circle-mask-inner">
           <div class="circle-body"></div>
         </div>
       </div>
+
       <div class="circle-mask-outer right">
         <div class="circle-mask-inner">
           <div class="circle-body"></div>
         </div>
       </div>
+
       <div class="chart-content">
         <div class="l_icon"><img class="icon" src="images/graphic-outlet.png"></div>
         <div class="title" id="mchart-001"></div>
-        <span class="percent-number">70</span>
+        <span class="percent-number">0</span>
+        <span class="set-percent">70</span>
+        <span class="show-number">70</span>
         <span class=".percent-symbol">W</span>
       </div>
       <div class="chart_t"></div>
@@ -124,7 +128,9 @@ div { display: block; }
       <div class="chart-content">
         <div class="l_icon"><img class="icon" src="images/graphic-charg.png"></div>
         <div class="title" id="mchart-002"></div>
-        <span class="percent-number">40</span>
+        <span class="percent-number">0</span>
+        <span class="set-percent">40</span>
+        <span class="show-number">40</span>
         <span>W</span>
       </div>
       <div class="chart_t"></div>
@@ -144,7 +150,9 @@ div { display: block; }
       <div class="chart-content">
         <div class="l_icon"><img class="icon" src="images/graphic-solar.png"></div>
         <div class="title" id="mchart-003"></div>
-        <span class="percent-number">90</span>
+        <span class="percent-number">0</span>
+        <span class="set-percent">90</span>
+        <span class="show-number">90</span>
         <span>W</span>
       </div>
       <div class="chart_t"></div>

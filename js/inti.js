@@ -324,10 +324,60 @@ $(function(){
 
 
 
+//
+//  ホーム画面
+//
 
 
 
+//  ホーム画面のドーナッツチャートプログラム
 
+
+$(function () {
+
+    setInterval(function(){
+        $('#chart_outlet .set-percent').text( 70 + (Math.round( Math.random()*60) - 30));
+        $('#chart_charg .set-percent').text( 30 + (Math.round( Math.random()*60) - 30));
+        $('#chart_solar .set-percent').text( 50 + (Math.round( Math.random()*60) - 30));
+        home_charts();
+    },3000);
+
+    // home_charts を表示
+    function home_charts() {
+
+        var $content = $('#chart-area'),
+            $charts = $content.find('.chart');
+        // 円チャートごとの処理
+        $charts.each(function(){
+            var deg,degRight, degLeft;
+            var $chart = $(this),
+                // 「マスク」を保存
+                $circleLeft = $chart.find('.left .circle-mask-inner')
+                    .css({ transform: 'rotate(' + degLeft + 'deg)' }),
+                $circleRight = $chart.find('.right .circle-mask-inner')
+                    .css({ transform: 'rotate(' + degRight + 'deg)' }),
+                // パーセンテージ値を取得
+                $percentNumber = $chart.find('.percent-number'),
+                percentData = $percentNumber.text(),
+                $setPercent = $chart.find('.set-percent'),
+                setData = $setPercent.text();
+            // 角度のアニメーション
+            $({ percent: $percentNumber.text() })
+                     .delay(100).animate({ percent: setData }, {
+                duration: 1500, 
+                progress: function () {
+                    var now = this.percent,
+                    deg = now * 360 / 100;
+                    degRight = Math.min(Math.max(deg, 0), 180);
+                    degLeft  = Math.min(Math.max(deg - 180, 0), 180);
+                    $circleRight.css({ transform: 'rotate(' + degRight + 'deg)' });
+                    $circleLeft.css({ transform: 'rotate(' + degLeft + 'deg)' });
+                    $percentNumber.text(Math.floor(now));
+                }
+            });
+        });
+    }
+});
 
 
 // アイコンのリンク処理

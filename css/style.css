@@ -350,13 +350,19 @@
 }
 
 
-
-.chart-content .percent-number {
+.chart-content .show-number {
     clear:left;
     font-size: 20px;
     font-weight: bold;
     color:#333333;
 }
+.chart-content .percent-number {
+    display:none;
+}
+.chart-content .set-percent {
+    display:none;
+}
+
 .no-borderradius .circle-mask-outer,
 .no-csstransforms .circle-mask-outer {
     display: none;
