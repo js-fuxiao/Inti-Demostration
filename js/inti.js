@@ -1,5 +1,6 @@
 
-
+// グローバル変数
+// インフォメーション・多国語文書
   var inti_info;
   var h_login_info;
   var h_log_info;
@@ -22,7 +23,39 @@
   var hi_special_info;
   var h_language_info;
 
+// グラフデータの実態
+    var chart_ad;
+    var chart_err;
+    var chart_batt_pas;
+    var chart_charg_observ;
+    var chart_charg_result;
+    var chart_charg_observ;
+    var chart_mppt_pas;
+    var chart_sw_pas;
+    var chart_sndac_pas;
+    var chart_pv_pas;
 
+
+// グローバル関数
+
+  function open_page() {
+    $('#chart-area').css('left', '-200px');
+    $('#diagram-area').css('right', '-100vw');
+    $('#operation-others').css('top', '0');
+    $('#log').css('bottom', '-100%');
+  };
+
+  function close_page() {
+    $('#schedule-area').css('z-index', '16');
+    $('#net-area').css('z-index', '16');
+    $('#pv-area').css('z-index', '16');
+    $('#switch-area').css('z-index', '16');
+    $('#charger-area').css('z-index', '16');
+    $('#mppt-area').css('z-index', '16');
+    $('#battery-area').css('z-index', '16');
+    $('#snd_ac-area').css('z-index', '16');
+    $('#ad-area').css('z-index', '16');
+  };
 
 
 
@@ -139,7 +172,6 @@ $(function(){
   }, function() {
     $('#explanation > div').html(inti_info);
   });
-
   $('#pv_icon').hover(function() {
     $('#explanation > div').html(hi_pv_info);
   }, function() {
@@ -217,8 +249,78 @@ $(function(){
 
 
 
+// PV画面
+$(function(){
+    var chart_iv;
+    var pv_series = 5;
+    var pc_parallel = 5;
+
+    var i;
+
+　　　　　// アイコンクリック
+    $('#pv_icon').click(function() {
+        close_page();
+        $('#pv-area').css('z-index', '17');
+        open_page();
+        $("#pv_add_s").val( pv_series );
+        $("#pv_add_p").val( pc_parallel );
+        pv_si_pr_disp();
+
+//        setTimeout(function(){
+//            draw_chart_iv();
+//            draw_pv_passage();
+//        },1000);
+    });
+
+　　　　　// シリアル・パラレル変更時
+    $('#pv_add_s').change(function() {
+        pv_series   = $("#pv_add_s").val();
+        pv_si_pr_disp();
+    });
+    $('#pv_add_s').click(function() {
+        pv_series   = $("#pv_add_s").val();
+        pv_si_pr_disp();
+    });
+    $('#pv_add_p').change(function() {
+        pc_parallel = $("#pv_add_p").val();
+        pv_si_pr_disp();
+    });
+    $('#pv_add_p').click(function() {
+        pc_parallel = $("#pv_add_p").val();
+        pv_si_pr_disp();
+    });
 
 
+
+    function pv_si_pr_disp() {
+        for( i = 10 ; i > 0 ; i--){
+            if( pc_parallel >= i ){
+                $('#serial_parallel-area > div:nth-child('+ i + ')')
+                    .css('display','flex');
+            }else{
+                $('#serial_parallel-area > div:nth-child('+ i + ')')
+                    .css('display','none');
+            }
+            if( pv_series >= i ){
+                $('#serial_parallel-area > div > div:nth-child('+ (2*i) + ')')
+                    .css('display','block');
+                $('#serial_parallel-area > div > div:nth-child('+ (2*i-1)+ ')')
+                    .css('display','block');
+            }else{
+                $('#serial_parallel-area > div > div:nth-child('+ (2*i) + ')')
+                    .css('display','none');
+                $('#serial_parallel-area > div > div:nth-child('+ (2*i-1)+ ')')
+                    .css('display','none');
+            }
+        }
+    };
+
+
+
+
+
+
+});
 
 
 
@@ -259,12 +361,6 @@ $(function(){
   $('#inet_icon').click(function() {
     close_page();
     $('#net-area').css('z-index', '17');
-    open_page();
-  });
-
-  $('#pv_icon').click(function() {
-    close_page();
-    $('#pv-area').css('z-index', '17');
     open_page();
   });
 
@@ -319,24 +415,6 @@ $(function(){
   });
 
 
-  function open_page() {
-    $('#chart-area').css('left', '-200px');
-    $('#diagram-area').css('right', '-100vw');
-    $('#operation-others').css('top', '0');
-    $('#log').css('bottom', '-100%');
-  };
-
-  function close_page() {
-    $('#schedule-area').css('z-index', '16');
-    $('#net-area').css('z-index', '16');
-    $('#pv-area').css('z-index', '16');
-    $('#switch-area').css('z-index', '16');
-    $('#charger-area').css('z-index', '16');
-    $('#mppt-area').css('z-index', '16');
-    $('#battery-area').css('z-index', '16');
-    $('#snd_ac-area').css('z-index', '16');
-    $('#ad-area').css('z-index', '16');
-  };
 });
 
 
@@ -430,6 +508,52 @@ $(function() {
       $('#add_point-area').css('z-index', '1');
     },400);
   });
+
+
+
+
+    var rdm;
+
+    var columns_ad = [
+                ['x1'],
+                ['input_value'],
+                ['measured_value']
+            ]
+    var columns_err = [
+                ['x2'],
+                ['Err'],
+            ]
+
+
+    $('#add_point-btn').click(function() {
+        var set_bal = parseInt($('#new_point input').val());
+        if(!isNaN(set_bal)){
+            columns_ad[0].push(set_bal);
+            columns_ad[1].push(set_bal);
+            columns_err[0].push(set_bal);
+
+            rdm = Math.random() * 11;
+            rdm += parseInt($('#new_point input').val())-5;
+            columns_ad[2].push(rdm);
+
+            rdm -= set_bal;
+            columns_err[1].push(rdm);
+
+            chart_ad.load({
+                columns: columns_ad
+            });
+            chart_err.load({
+                columns: columns_err
+            });
+        }
+    });
+
+
+
+
+
+
+
 });
 
 

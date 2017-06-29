@@ -17,7 +17,6 @@
 <link rel="stylesheet" href="css/home_style.css">
 <link rel="stylesheet" href="css/schedule_style.css">
 <link rel="stylesheet" href="css/net_style.css">
-<link rel="stylesheet" href="css/pv_style.css">
 <link rel="stylesheet" href="css/switch_style.css">
 <link rel="stylesheet" href="css/charger_style.css">
 <link rel="stylesheet" href="css/mppt_style.css">
@@ -183,6 +182,7 @@ div { display: block; }
     <div id="home_arrow5"></div>
     <div id="home_arrow6"></div>
     <div id="home_arrow7"></div>
+    <div id="home_arrow7-2"></div>
     <div id="home_arrow8"></div>
     <div id="home_arrow8-2"></div>
     <div id="home_arrow9"></div>
@@ -191,6 +191,7 @@ div { display: block; }
     <div id="home_arrow12"></div>
     <div id="home_arrow13"></div>
     <div id="home_arrow14"></div>
+    <div id="home_arrow15"></div>
 
   </div>
 
@@ -600,8 +601,26 @@ div { display: block; }
     </div>
 
     <div id="pv_s-p_set">
-         "シリアル－パラレル　指定"
+      <div>
+        <div class="pv_title">シリアル</div>
+        <div class="pv_title">パラレル</div>
+      </div>
+      <div id="pv_set">
+        <div id="pv_s_set">
+        <div class="frame-sp"></div>
+          <input id= "pv_add_s" class="input_text" type="number" step="1" required></input>
+        </div>
+        <div class="pv_mai">セット</div>
+
+        <div id="pv_p_set">
+          <div class="frame-sp"></div>
+          <input id= "pv_add_p" class="input_text" type="number" step="1" required></input>
+        </div>
+        <div class="pv_mai">セット</div>
+      </div>
     </div>
+
+
 
     <div id="pv_total-area">
          "合計電力"
