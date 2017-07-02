@@ -19,7 +19,7 @@
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
     background-color: rgba(256,256,256,1);
-    background-image: url("../images/Logo.jpg");
+    background-image: url("../images/logo9.jpg");
     background-size:100% 100%;
     border-radius: 35px;
     box-shadow:
@@ -441,7 +441,7 @@
 
 #switching_icon{
     grid-column: 21 / span 5;
-    grid-row: 6 / span 6;
+    grid-row: 8 / span 6;
     background-image: url("../images/switching_block.png");
     background-size:100% 100%;
     background-color: #ccc;
@@ -634,14 +634,14 @@
 
 #home_arrow5{
     grid-column: 17 / span 4;
-    grid-row: 7 / span 1;
+    grid-row: 9 / span 1;
     background-image: url("../images/home_arrow5.gif");
     background-size:100% 100%;
 }
 
 #home_arrow6{
     grid-column: 26 / span 4;
-    grid-row: 7 / span 1;
+    grid-row: 9 / span 1;
     background-image: url("../images/home_arrow5.gif");
     background-size:100% 100%;
 }
@@ -700,7 +700,7 @@
 }
 #home_arrow13{
     grid-column: 17 / span 4;
-    grid-row: 10 / span 1;
+    grid-row: 11 / span 1;
     background-image: url("../images/home_arrow7.gif");
     background-size:100% 100%;
     transform:rotate(180deg);
@@ -708,7 +708,7 @@
 
 #home_arrow14{
     grid-column: 26 / span 4;
-    grid-row: 10 / span 1;
+    grid-row: 11 / span 1;
     background-image: url("../images/home_arrow7.gif");
     background-size:100% 100%;
 
@@ -720,6 +720,399 @@
     background-size:100% 100%;
     transform:rotate(90deg);
 
+}
+
+
+
+/***********************************************
+                   スケジュール
+************************************************/
+
+#schedule-area {
+    position: absolute;
+    top: 140px;
+    left: 0;
+    height: calc(100vh - 180px);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    z-index: 16;
+    overflow: hidden;
+}
+
+#schedule-area .title-area {
+    display: grid;
+    grid-template-columns:  repeat(4,80px) 1fr 80px 80px 1fr repeat(4,80px);
+    grid-template-rows:20px 40px;
+    background-color: #069;
+}
+
+
+#schedule-area .title{
+    grid-column: 6 / span 2;
+    grid-row: 1 / span 2;
+    background-color: #ccc;
+}
+
+
+#schedule-area .select{
+    grid-column: 9 / span 4;
+    grid-row: 2 / span 1;
+    background-color: #ccc;
+}
+
+
+#schedule {
+    display: grid;
+    grid-template-columns:  20px repeat(2,80px) repeat(721,1fr) 10px;
+    grid-template-rows: 10px 25px repeat(5,30px) 10px 25px repeat(5,30px) 10px;
+    background-color: #069;
+}
+
+#schedule .tim_am{
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 1;
+    background-color: #666;
+      border: 1px solid rgba(0,0,0,0.2);
+}
+#schedule .frm_am{
+    grid-column: 5 / span 720;
+    grid-row: 2 / span 1;
+    background-color: #999;
+}
+#schedule .tim0{
+    grid-column: 5 / span 20;
+    grid-row: 2 / span 6;
+}
+
+#schedule .tim1{
+    grid-column: 55 / span 20;
+    grid-row: 2 / span 6;
+}
+#schedule .tim2{
+    grid-column: 105 / span 20;
+    grid-row: 2 / span 6;
+}
+
+#schedule .tim3{
+    grid-column: 175 / span 20;
+    grid-row: 2 / span 1;
+}
+#schedule .tim4{
+    grid-column: 235 / span 20;
+    grid-row: 2 / span 1;
+}
+#schedule .tim5{
+    grid-column: 295 / span 20;
+    grid-row: 2 / span 1;
+}
+#schedule .tim6{
+    grid-column: 355 / span 20;
+    grid-row: 2 / span 1;
+}
+#schedule .tim7{
+    grid-column: 415 / span 20;
+    grid-row: 2 / span 1;
+}
+#schedule .tim8{
+    grid-column: 475 / span 20;
+    grid-row: 2 / span 1;
+}
+#schedule .tim9{
+    grid-column: 535 / span 20;
+    grid-row: 2 / span 1;
+}
+#schedule .tim10{
+    grid-column: 595 / span 20;
+    grid-row: 2 / span 1;
+}
+#schedule .tim11{
+    grid-column: 655 / span 20;
+    grid-row: 2 / span 1;
+}
+#schedule .tim12-1{
+    grid-column: 705 / span 20;
+    grid-row: 2 / span 1;
+}
+
+#schedule .tim_pm{
+    grid-column: 2 / span 2;
+    grid-row: 9 / span 1;
+    background-color: #666;
+      border: 1px solid rgba(0,0,0,0.2);
+}
+#schedule .frm_pm{
+    grid-column: 5 / span 720;
+    grid-row: 9 / span 1;
+    background-color: #999;
+}
+#schedule .tim12-2{
+    grid-column: 5 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim13{
+    grid-column: 55 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim14{
+    grid-column: 105 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim15{
+    grid-column: 175 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim16{
+    grid-column: 235 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim17{
+    grid-column: 295 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim18{
+    grid-column: 355 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim19{
+    grid-column: 415 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim20{
+    grid-column: 475 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim21{
+    grid-column: 535 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim22{
+    grid-column: 595 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim23{
+    grid-column: 655 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .tim24{
+    grid-column: 705 / span 20;
+    grid-row: 9 / span 1;
+}
+#schedule .ac2_am{
+    grid-column: 2 / span 2;
+    grid-row: 3 / span 1;
+    background-color: #777;
+      border: 1px solid rgba(0,0,0,0.2);
+}
+#schedule .ac1_am{
+    grid-column: 2 / span 2;
+    grid-row: 4 / span 1;
+    background-color: #888;
+      border: 1px solid rgba(0,0,0,0.2);
+}
+#schedule .inv_am{
+    grid-column: 2 / span 2;
+    grid-row: 5 / span 1;
+    background-color: #777;
+      border: 1px solid rgba(0,0,0,0.2);
+}
+#schedule .chg_am{
+    grid-column: 2 / span 2;
+    grid-row: 6 / span 1;
+    background-color: #888;
+}
+#schedule .usb_am{
+    grid-column: 2 / span 2;
+    grid-row: 7 / span 1;
+    background-color: #777;
+}
+
+
+#schedule .ac2-1.empty{
+    grid-column: 5 / span 720;
+    grid-row: 3 / span 1;
+    background-color: #aaa;
+}
+#schedule .ac1-1.empty{
+    grid-column: 5 / span 720;
+    grid-row: 4 / span 1;
+    background-color: #bbb;
+}
+#schedule .inv-1.empty{
+    grid-column: 5 / span 720;
+    grid-row: 5 / span 1;
+    background-color: #aaa;
+}
+#schedule .chg-1.empty{
+    grid-column: 5 / span 720;
+    grid-row: 6 / span 1;
+    background-color: #bbb;
+}
+#schedule .usb-1.empty{
+    grid-column: 5 / span 720;
+    grid-row: 7 / span 1;
+    background-color: #aaa;
+}
+#schedule .ac2_pm{
+    grid-column: 2 / span 2;
+    grid-row: 10 / span 1;
+    background-color: #777;
+}
+#schedule .ac1_pm{
+    grid-column: 2 / span 2;
+    grid-row: 11 / span 1;
+    background-color: #888;
+}
+#schedule .inv_pm{
+    grid-column: 2 / span 2;
+    grid-row: 12 / span 1;
+    background-color: #777;
+}
+#schedule .chg_pm{
+    grid-column: 2 / span 2;
+    grid-row: 13 / span 1;
+    background-color: #888;
+}
+#schedule .usb_pm{
+    grid-column: 2 / span 2;
+    grid-row: 14 / span 1;
+    background-color: #777;
+}
+
+#schedule .ac2-2.empty{
+    grid-column: 5 / span 720;
+    grid-row: 10 / span 1;
+    background-color: #aaa;
+}
+#schedule .ac1-2.empty{
+    grid-column: 5 / span 720;
+    grid-row: 11 / span 1;
+    background-color: #bbb;
+}
+#schedule .inv-2.empty{
+    grid-column: 5 / span 720;
+    grid-row: 12 / span 1;
+    background-color: #aaa;
+}
+#schedule .chg-2.empty{
+    grid-column: 5 / span 720;
+    grid-row: 13 / span 1;
+    background-color: #bbb;
+}
+#schedule .usb-2.empty{
+    grid-column: 5 / span 720;
+    grid-row: 14 / span 1;
+    background-color: #aaa;
+}
+
+
+#schedule .empty,
+#schedule .filled{
+    cursor: pointer;
+}
+
+
+
+#schedule_cnt {
+    display: grid;
+    grid-template-columns:  repeat(4,80px) repeat(2,1fr) 1fr repeat(6,80px);
+    grid-template-rows: 40px 20px;
+    min-height: calc(100vh - 600px);
+    background-color: #069;
+}
+
+
+#schedule_solar{
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 2;
+    background-color: #ccc;
+}
+
+
+#schedule_edit{
+    grid-column: 10 / span 2;
+    grid-row: 1 / span 1;
+    background-color: #ccc;
+}
+
+#schedule_save{
+    grid-column: 12 / span 2;
+    grid-row: 1 / span 1;
+}
+
+
+
+
+/* ポップアップ画面 */
+
+.all_mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    Width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.3);
+    transition:1.5s;
+}
+
+
+#add_schedule-area .driven_ac1{
+    Width: 250px;
+    height: 180px;
+    position: absolute;
+    top: calc(50% - 125px);
+    left: -280px;
+    background-color: #fbfaf4;
+    overflow: hidden;
+    transition:0.5s;
+    padding:5px;
+    color:#9a9f9f;
+}
+
+
+#add_schedule-area .driven_inverter{
+    Width: 250px;
+    height: 180px;
+    position: absolute;
+    top: calc(50% - 125px);
+    left: -280px;
+    background-color: #fbfaf4;
+    overflow: hidden;
+    transition:0.5s;
+    padding:5px;
+    color:#9a9f9f;
+/*    display: grid;
+    grid-template-columns: 45px 20px 120px 20px 45px;
+    grid-template-rows: 15px 30px 15px 40px 20px 40px 15px;
+*/
+}
+
+#add_schedule-area .driven_charger{
+    Width: 250px;
+    height: 180px;
+    position: absolute;
+    top: calc(50% - 125px);
+    left: -280px;
+    background-color: #fbfaf4;
+    overflow: hidden;
+    transition:0.5s;
+    padding:5px;
+    color:#9a9f9f;
+}
+
+#add_schedule-area .driven_usb{
+    Width: 250px;
+    height: 180px;
+    position: absolute;
+    top: calc(50% - 125px);
+    left: -280px;
+    background-color: #fbfaf4;
+    overflow: hidden;
+    transition:0.5s;
+    padding:5px;
+    color:#9a9f9f;
 }
 
 

@@ -14,7 +14,6 @@
 
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/home_style.css">
-<link rel="stylesheet" href="css/schedule_style.css">
 <link rel="stylesheet" href="css/net_style.css">
 <link rel="stylesheet" href="css/switch_style.css">
 <link rel="stylesheet" href="css/charger_style.css">
@@ -208,84 +207,121 @@ div { display: block; }
 <!-- ####################  スケジュール設定  ####################  -->
 
 <div id="schedule-area">
-
-  <div id="schedule_header"> <!-- コンテナ -->
-    <div id="schedule_title"    >スケジュールタイトル</div>
-    <div id="schedule_sel"    >スケジュール選択</div>
+  <div class="title-area">                <!-- コンテナ -->
+    <div class="title">スケジュールタイトル</div>
+    <div class="select">スケジュール選択</div>
   </div>
 
   <div id="schedule"> <!-- コンテナ -->
 
-    <div id="tim_am"    >時間</div>
-    <div id="frm_am"    ></div>
-    <div id="tim0"    >0</div>
-    <div id="tim1"    >1</div>
-    <div id="tim2"    >2</div>
-    <div id="tim3"    >3</div>
-    <div id="tim4"    >4</div>
-    <div id="tim5"    >5</div>
-    <div id="tim6"    >6</div>
-    <div id="tim7"    >7</div>
-    <div id="tim8"    >8</div>
-    <div id="tim9"    >9</div>
-    <div id="tim10"    >10</div>
-    <div id="tim11"    >11</div>
-    <div id="tim12-1"    >12</div>
-    <div id="tim_pm"    >時間</div>
-    <div id="frm_pm"    ></div>
-    <div id="tim12-2"    >12</div>
-    <div id="tim13"    >13</div>
-    <div id="tim14"    >14</div>
-    <div id="tim15"    >15</div>
-    <div id="tim16"    >16</div>
-    <div id="tim17"    >17</div>
-    <div id="tim18"    >18</div>
-    <div id="tim19"    >19</div>
-    <div id="tim20"    >20</div>
-    <div id="tim21"    >21</div>
-    <div id="tim22"    >22</div>
-    <div id="tim23"    >23</div>
-    <div id="tim24"    >24</div>
+    <div class="tim_am">時間</div>
+    <div class="frm_am"></div>
+    <div class="tim0">  0</div><div class="tim1">  1</div><div class="tim2">  2</div>
+    <div class="tim3">  3</div><div class="tim4">  4</div><div class="tim5">  5</div>
+    <div class="tim6">  6</div><div class="tim7">  7</div><div class="tim8">  8</div>
+    <div class="tim9">  9</div><div class="tim10">10</div><div class="tim11">11</div>
+    <div class="tim12-1">12</div>
 
-    <div id="ac2_am"    >AC２時側出力</div>
-    <div id="ac1_am"    >AC1時側出力</div>
-    <div id="inv_am"    >インバータ強制動作</div>
-    <div id="chg_am"    >充電</div>
-    <div id="usb_am"    >USB充電</div>
+    <div class="tim_pm">時間</div>
+    <div class="frm_pm"></div>
+    <div class="tim12-2">12</div>
+    <div class="tim13">13</div><div class="tim14">14</div><div class="tim15">15</div>
+    <div class="tim16">16</div><div class="tim17">17</div><div class="tim18">18</div>
+    <div class="tim19">19</div><div class="tim20">20</div><div class="tim21">21</div>
+    <div class="tim22">22</div><div class="tim23">23</div><div class="tim24">24</div>
 
-    <div id="ac2_emp1"    >無し</div>
-    <div id="ac1_emp1"    >無し</div>
-    <div id="inv_emp1"    >無し</div>
-    <div id="chg_emp1"    >無し</div>
-    <div id="usb_emp1"    >無し</div>
+    <div class="ac2_am">AC２時側出力</div>
+    <div class="ac1_am">AC1時側出力</div>
+    <div class="inv_am">インバータ強制動作</div>
+    <div class="chg_am">充電</div>
+    <div class="usb_am">USB充電</div>
 
-    <div id="sch1"></div>
+    <div class="empty ac2-1"></div>
+    <div class="empty ac1-1"></div>
+    <div class="empty inv-1"></div>
+    <div class="empty chg-1"></div>
+    <div class="empty usb-1"></div>
+
+<!--    <div class="filled ac2-1" ></div>-->
 
 
 
-    <div id="ac2_pm"    >AC２時側出力</div>
-    <div id="ac1_pm"    >AC1時側出力</div>
-    <div id="inv_pm"    >インバータ強制動作</div>
-    <div id="chg_pm"    >充電</div>
-    <div id="usb_pm"    >USB充電</div>
+    <div class="ac2_pm">AC２時側出力</div>
+    <div class="ac1_pm">AC1時側出力</div>
+    <div class="inv_pm">インバータ強制動作</div>
+    <div class="chg_pm">充電</div>
+    <div class="usb_pm">USB充電</div>
 
-    <div id="ac2_emp2"    >無し</div>
-    <div id="ac1_emp2"    >無し</div>
-    <div id="inv_emp2"    >無し</div>
-    <div id="chg_emp2"    >無し</div>
-    <div id="usb_emp2"    >無し</div>
-
+    <div class="empty ac2-2"></div>
+    <div class="empty ac1-2"></div>
+    <div class="empty inv-2"></div>
+    <div class="empty chg-2"></div>
+    <div class="empty usb-2"></div>
   </div>
 
   <div id="schedule_cnt"> <!-- コンテナ -->
     <div id="schedule_solar"    >太陽光発電ON/OFF</div>
-    <div id="schedule_input"    >スケジュール入力</div>
-    <div id="schedule_edit"    >スケジュール編集</div>
+    <div id="schedule_edit"    >
+      <div class="std-btn_blu">スケジュール編集</div>
+    </div>
     <div id="schedule_save"    >
       <div class="std-btn_blu">保存</div>
     </div>
   </div>
 </div>
+
+<!--
+<div id="add_scdl_ac1-area" class="all_mask">
+</div>
+-->
+
+<div id="add_schedule-area" class="all_mask">
+
+
+  <div class="driven_ac1">
+    <p class="add_schedule-title">1次側AC出力スケジュール</p>
+    <input class="opening_time" type="time" value="12:00"   ></input>
+    <input class="closing_time" type="time" value="15:00"   ></input>
+    <input class="cancell"      type="button" value="キャンセル"></input>
+    <input class="delet"        type="button" value="削除"></input>
+    <input class="complet ac1"  type="button" value="作成"></input>
+  </div>
+
+  <div class="driven_inverter">
+    <p class="add_schedule-title">インバーター駆動スケジュール</p>
+    <input class="opening_time" type="time" value="12:00"   ></input>
+    <input class="closing_time" type="time" value="15:00"   ></input>
+    <input class="cancell"      type="button" value="キャンセル"></input>
+    <input class="delet"        type="button" value="削除"></input>
+    <input class="complet inv"  type="button" value="作成"></input>
+  </div>
+
+  <div class="driven_charger">
+    <p class="add_schedule-title">充電器充電スケジュール</p>
+    <input class="opening_time" type="time" value="12:00"   ></input>
+    <input class="closing_time" type="time" value="15:00"   ></input>
+    <input class="charg_percent" type="number" value="100"   ></input>
+    <input class="cancell"      type="button" value="キャンセル"></input>
+    <input class="delet"        type="button" value="削除"></input>
+    <input class="complet chg"  type="button" value="作成"></input>
+  </div>
+
+  <div class="driven_usb">
+    <p class="add_schedule-title">USBスケジュール</p>
+    <input class="opening_time" type="time" value="12:00"   ></input>
+    <input class="closing_time" type="time" value="15:00"   ></input>
+    <input class="sel_usb1"     type="checkbox"             ></input>
+    <input class="sel_usb2"     type="checkbox"             ></input>
+    <input class="sel_usb3"     type="checkbox"             ></input>
+    <input class="cancell"      type="button" value="キャンセル"></input>
+    <input class="delet"        type="button" value="削除"></input>
+    <input class="complet usb"  type="button" value="作成"></input>
+  </div>
+
+
+
+</div>
+
 
 <!-- ####################  ネットワーク設定  ####################  -->
 
@@ -364,248 +400,96 @@ div { display: block; }
     <div id="i_v-chart"></div>
 
     <div id="serial_parallel-area"> <!-- コンテナ -->
-
       <div>
         <div>*</div>
-        <div>1-1</div>
-        <div></div>
-        <div>1-2</div>
-        <div></div>
-        <div>1-3</div>
-        <div></div>
-        <div>1-4</div>
-        <div></div>
-        <div>1-5</div>
-        <div></div>
-        <div>1-6</div>
-        <div></div>
-        <div>1-7</div>
-        <div></div>
-        <div>1-8</div>
-        <div></div>
-        <div>1-9</div>
-        <div></div>
-        <div>1-e</div>
+        <div>1-1</div><div></div><div>1-2</div><div></div>
+        <div>1-3</div><div></div><div>1-4</div><div></div>
+        <div>1-5</div><div></div><div>1-6</div><div></div>
+        <div>1-7</div><div></div><div>1-8</div><div></div>
+        <div>1-9</div><div></div><div>1-e</div>
         <div>*</div>
       </div>
-
       <div>
         <div>*</div>
-        <div>2-1</div>
-        <div></div>
-        <div>2-2</div>
-        <div></div>
-        <div>2-3</div>
-        <div></div>
-        <div>2-4</div>
-        <div></div>
-        <div>2-5</div>
-        <div></div>
-        <div>2-6</div>
-        <div></div>
-        <div>2-7</div>
-        <div></div>
-        <div>2-8</div>
-        <div></div>
-        <div>2-9</div>
-        <div></div>
-        <div>2-e</div>
+        <div>2-1</div><div></div><div>2-2</div><div></div>
+        <div>2-3</div><div></div><div>2-4</div><div></div>
+        <div>2-5</div><div></div><div>2-6</div><div></div>
+        <div>2-7</div><div></div><div>2-8</div><div></div>
+        <div>2-9</div><div></div><div>2-e</div>
         <div>*</div>
       </div>
-
       <div>
         <div>*</div>
-        <div>3-1</div>
-        <div></div>
-        <div>3-2</div>
-        <div></div>
-        <div>3-3</div>
-        <div></div>
-        <div>3-4</div>
-        <div></div>
-        <div>3-5</div>
-        <div></div>
-        <div>3-6</div>
-        <div></div>
-        <div>3-7</div>
-        <div></div>
-        <div>3-8</div>
-        <div></div>
-        <div>3-9</div>
-        <div></div>
-        <div>3-e</div>
+        <div>3-1</div><div></div><div>3-2</div><div></div>
+        <div>3-3</div><div></div><div>3-4</div><div></div>
+        <div>3-5</div><div></div><div>3-6</div><div></div>
+        <div>3-7</div><div></div><div>3-8</div><div></div>
+        <div>3-9</div><div></div><div>3-e</div>
         <div>*</div>
       </div>
-
       <div>
         <div>*</div>
-        <div>4-1</div>
-        <div></div>
-        <div>4-2</div>
-        <div></div>
-        <div>4-3</div>
-        <div></div>
-        <div>4-4</div>
-        <div></div>
-        <div>4-5</div>
-        <div></div>
-        <div>4-6</div>
-        <div></div>
-        <div>4-7</div>
-        <div></div>
-        <div>4-8</div>
-        <div></div>
-        <div>4-9</div>
-        <div></div>
-        <div>4-e</div>
+        <div>4-1</div><div></div><div>4-2</div><div></div>
+        <div>4-3</div><div></div><div>4-4</div><div></div>
+        <div>4-5</div><div></div><div>4-6</div><div></div>
+        <div>4-7</div><div></div><div>4-8</div><div></div>
+        <div>4-9</div><div></div><div>4-e</div>
         <div>*</div>
       </div>
-
       <div>
         <div>*</div>
-        <div>5-1</div>
-        <div></div>
-        <div>5-2</div>
-        <div></div>
-        <div>5-3</div>
-        <div></div>
-        <div>5-4</div>
-        <div></div>
-        <div>5-5</div>
-        <div></div>
-        <div>5-6</div>
-        <div></div>
-        <div>5-7</div>
-        <div></div>
-        <div>5-8</div>
-        <div></div>
-        <div>5-9</div>
-        <div></div>
-        <div>5-e</div>
+        <div>5-1</div><div></div><div>5-2</div><div></div>
+        <div>5-3</div><div></div><div>5-4</div><div></div>
+        <div>5-5</div><div></div><div>5-6</div><div></div>
+        <div>5-7</div><div></div><div>5-8</div><div></div>
+        <div>5-9</div><div></div><div>5-e</div>
         <div>*</div>
       </div>
-
       <div>
         <div>*</div>
-        <div>6-1</div>
-        <div></div>
-        <div>6-2</div>
-        <div></div>
-        <div>6-3</div>
-        <div></div>
-        <div>6-4</div>
-        <div></div>
-        <div>6-5</div>
-        <div></div>
-        <div>6-6</div>
-        <div></div>
-        <div>6-7</div>
-        <div></div>
-        <div>6-8</div>
-        <div></div>
-        <div>6-9</div>
-        <div></div>
-        <div>6-e</div>
+        <div>6-1</div><div></div><div>6-2</div><div></div>
+        <div>6-3</div><div></div><div>6-4</div><div></div>
+        <div>6-5</div><div></div><div>6-6</div><div></div>
+        <div>6-7</div><div></div><div>6-8</div><div></div>
+        <div>6-9</div><div></div><div>6-e</div>
         <div>*</div>
       </div>
-
       <div>
         <div>*</div>
-        <div>7-1</div>
-        <div></div>
-        <div>7-2</div>
-        <div></div>
-        <div>7-3</div>
-        <div></div>
-        <div>7-4</div>
-        <div></div>
-        <div>7-5</div>
-        <div></div>
-        <div>7-6</div>
-        <div></div>
-        <div>7-7</div>
-        <div></div>
-        <div>7-8</div>
-        <div></div>
-        <div>7-9</div>
-        <div></div>
-        <div>7-e</div>
+        <div>7-1</div><div></div><div>7-2</div><div></div>
+        <div>7-3</div><div></div><div>7-4</div><div></div>
+        <div>7-5</div><div></div><div>7-6</div><div></div>
+        <div>7-7</div><div></div><div>7-8</div><div></div>
+        <div>7-9</div><div></div><div>7-e</div>
         <div>*</div>
       </div>
-
       <div>
         <div>*</div>
-        <div>8-1</div>
-        <div></div>
-        <div>8-2</div>
-        <div></div>
-        <div>8-3</div>
-        <div></div>
-        <div>8-4</div>
-        <div></div>
-        <div>8-5</div>
-        <div></div>
-        <div>8-6</div>
-        <div></div>
-        <div>8-7</div>
-        <div></div>
-        <div>8-8</div>
-        <div></div>
-        <div>8-9</div>
-        <div></div>
-        <div>8-e</div>
+        <div>8-1</div><div></div><div>8-2</div><div></div>
+        <div>8-3</div><div></div><div>8-4</div><div></div>
+        <div>8-5</div><div></div><div>8-6</div><div></div>
+        <div>8-7</div><div></div><div>8-8</div><div></div>
+        <div>8-9</div><div></div><div>8-e</div>
         <div>*</div>
       </div>
-
       <div>
         <div>*</div>
-        <div>9-1</div>
-        <div></div>
-        <div>9-2</div>
-        <div></div>
-        <div>9-3</div>
-        <div></div>
-        <div>9-4</div>
-        <div></div>
-        <div>9-5</div>
-        <div></div>
-        <div>9-6</div>
-        <div></div>
-        <div>9-7</div>
-        <div></div>
-        <div>9-8</div>
-        <div></div>
-        <div>9-9</div>
-        <div></div>
-        <div>9-e</div>
+        <div>9-1</div><div></div><div>9-2</div><div></div>
+        <div>9-3</div><div></div><div>9-4</div><div></div>
+        <div>9-5</div><div></div><div>9-6</div><div></div>
+        <div>9-7</div><div></div><div>9-8</div><div></div>
+        <div>9-9</div><div></div><div>9-e</div>
         <div>*</div>
       </div>
-
       <div>
         <div>*</div>
-        <div>e-1</div>
-        <div></div>
-        <div>e-2</div>
-        <div></div>
-        <div>e-3</div>
-        <div></div>
-        <div>e-4</div>
-        <div></div>
-        <div>e-5</div>
-        <div></div>
-        <div>e-6</div>
-        <div></div>
-        <div>e-7</div>
-        <div></div>
-        <div>e-8</div>
-        <div></div>
-        <div>e-9</div>
-        <div></div>
-        <div>e-e</div>
+        <div>e-1</div><div></div><div>e-2</div><div></div>
+        <div>e-3</div><div></div><div>e-4</div><div></div>
+        <div>e-5</div><div></div><div>e-6</div><div></div>
+        <div>e-7</div><div></div><div>e-8</div><div></div>
+        <div>e-9</div><div></div><div>e-e</div>
         <div>*</div>
       </div>
-
-
     </div>
 
     <div id="pv_s-p_set">
@@ -837,16 +721,8 @@ div { display: block; }
 
     <div id="battery_head"></div>
     <div id="battery_body"></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
     <div id="battery_current"></div>
     <div id="battery_voltage"></div>
 

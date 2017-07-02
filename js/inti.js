@@ -315,11 +315,6 @@ $(function(){
         }
     };
 
-
-
-
-
-
 });
 
 
@@ -336,11 +331,19 @@ $(function(){
 $(function () {
 
     setInterval(function(){
-        $('#chart_outlet .set-percent').text( 70 + (Math.round( Math.random()*60) - 30));
-        $('#chart_charg .set-percent').text( 30 + (Math.round( Math.random()*60) - 30));
-        $('#chart_solar .set-percent').text( 50 + (Math.round( Math.random()*60) - 30));
+        var val = 70 + (Math.round( Math.random()*60) - 30);
+        $('#chart_outlet .set-percent').text( val );
+        $('#chart_outlet .show-number').text( val );
+        val = 30 + (Math.round( Math.random()*60) - 30);
+        $('#chart_charg .set-percent').text( val );
+        $('#chart_charg .show-number').text( val );
+        val = 50 + (Math.round( Math.random()*60) - 30);
+        $('#chart_solar .set-percent').text( val );
+        $('#chart_solar .show-number').text( val );
         home_charts();
     },3000);
+
+
 
     // home_charts を表示
     function home_charts() {
@@ -477,19 +480,143 @@ $(function(){
                          ****/
 
 $(function() {
-  $('#schedule_save').click(function() {
-    $('#sch1').css('grid-column', '200 / span 400');
+    $('#schedule_save').click(function() {
+        $('#sch1').css('grid-column', '200 / span 400');
 
+    });
+
+    $("#schedule").click(function(e){
+//        console.log(e.target.className);
+        if(e.target.className.match(/empty/)){
+            add_schedule( e.target.className );
+//            alert(e.target.className);
+        }
+    });
+
+
+
+/* ここから、ポップアップのスクリプト */
+
+    function add_schedule( set_cls ) {
+
+        $('#add_schedule-area').css('z-index', '18');
+        if(set_cls.match(/ac1/)){
+          $('#add_schedule-area .driven_ac1')
+              .css('left', 'calc(50% - 62px)');
+        }
+        if(set_cls.match(/inv/)){
+          $('#add_schedule-area .driven_inverter')
+              .css('left', 'calc(50% - 62px)');
+        }
+        if(set_cls.match(/chg/)){
+          $('#add_schedule-area .driven_charger')
+              .css('left', 'calc(50% - 62px)');
+        }
+        if(set_cls.match(/usb/)){
+          $('#add_schedule-area .driven_usb')
+              .css('left', 'calc(50% - 62px)');
+        }
+    };
+
+  $('#add_schedule-area .complet').click(function(e) {
+    var kind, low_am;
+    if(e.target.className.match(/ac1/)){
+      kind = 'ac1';
+      area = '.driven_ac1';
+      low_am = 4;
+      low_pm = 11;
+    }
+    if(e.target.className.match(/inv/)){
+      kind = 'inv';
+      area = '.driven_inverter';
+      low_am = 5;
+      low_pm = 12;
+    }
+    if(e.target.className.match(/chg/)){
+      kind = 'chg';
+      area = '.driven_charger';
+      low_am = 6;
+      low_pm = 13;
+    }
+    if(e.target.className.match(/usb/)){
+      kind = 'usb';
+      area = '.driven_usb';
+      low_am = 7;
+      low_pm = 14;
+    }
+
+//        console.log(e.target.className);
+    var op_time = $('#add_schedule-area '+area+' input.opening_time').val(),
+        cl_time = $('#add_schedule-area '+area+' input.closing_time').val();
+    op_time = op_time.replace(":", "");
+    cl_time = cl_time.replace(":", "");
+
+    var terget = new_schedule( op_time, kind );
+
+
+    $( terget ).ready(function() {
+      $(terget).data('op_time', op_time);
+      $(terget).data('cl_time', cl_time);
+  // ここから表示
+      if( op_time < 1200 ){
+        $(terget).css('grid-row', low_am + ' / span 1');
+        if( cl_time <= 1200 ){
+          new_bar( terget, op_time, cl_time );
+        } else {
+          new_bar( terget, op_time, '1200' );
+          terget = new_schedule( op_time + '_2nd', kind );
+          $(terget).css('grid-row', low_pm + ' / span 1');
+          cl_time -= 1200;
+          new_bar( terget, '0', cl_time );
+        }
+      } else {
+        op_time -= 1200;
+        cl_time -= 1200;
+        $(terget).css('grid-row', low_pm + ' / span 1');
+        new_bar( terget, op_time, cl_time );
+      }
+    });
+
+  //ポップアップを閉じる
+    $('#add_schedule-area > div').css('left', '-280px');
+    setTimeout(function(){
+      $('#add_schedule-area').css('z-index', '1');
+    },400);
   });
+
+  $('#add_schedule-area .delet').click(function() {
+    $('#add_schedule-area > div').css('left', '-280px');
+    setTimeout(function(){
+      $('#add_schedule-area').css('z-index', '1');
+    },400);
+  });
+
+  $('#add_schedule-area .cancell').click(function() {
+    $('#add_schedule-area > div').css('left', '-280px');
+    setTimeout(function(){
+      $('#add_schedule-area').css('z-index', '1');
+    },400);
+  });
+
+
+
+
+  function new_schedule( op_time, kind ) {
+    var new_schedule = '<div class="filled '+ kind +' '+ op_time +'"></div>';
+    $('#schedule .empty.usb-2').after(new_schedule);
+    return ('#schedule .' + op_time + '.' + kind);
+  };
+
+  function new_bar( terget, op_time, cl_time ) {
+      $(terget).css('background-color', '#ecc');
+      var op_glid = (op_time / 100)*60+(op_time % 100),
+          cl_glid = ((cl_time / 100)*60+(cl_time % 100)) - op_glid;
+      $(terget).css('grid-column', (op_glid + 5) + '/ span '+ cl_glid);
+  };
 });
 
-$(function(){
 
-	jQuery("#schedule").click(function(e){
-		alert(e.target.id);
-		alert(e.target.className);
-	});
-});
+
 
 
 
@@ -607,10 +734,6 @@ $(function() {
 });
 
 
-
-
-
-/* インフォメーション処理のスクリプト */
 
 
 
