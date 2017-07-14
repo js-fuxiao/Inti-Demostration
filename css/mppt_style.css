@@ -22,105 +22,70 @@
 }
 
 #mppt_main-area {
-    grid-column: 1 / span 32;
-    grid-row: 1 / span 20;
-  background-color: #069;
-}
+    grid-area: 1 / 1 / span 20 / span 32;
+    background-image: url("../images/charger.png");
+    background-size:100% 100%;
 
+  background-color: #555;
+}
 #mppt_spare_charge {
-    grid-column: 1 / span 4;
-    grid-row: 13 / span 2;
-  background-color: #069;
+    grid-area: 13 / 1 / span 2 / span 4;
+  background-color: #666;
 }
-
 #mppt_biggest_charging_current {
-    grid-column: 5 / span 4;
-    grid-row: 5 / span 2;
-  background-color: #069;
+    grid-area: 5 / 5 / span 2 / span 4;
+  background-color: #666;
 }
-
 #mppt_biggest_charging_voltage {
-    grid-column: 23 / span 4;
-    grid-row: 5 / span 2;
-  background-color: #069;
+    grid-area: 5 / 23 / span 2 / span 4;
+  background-color: #666;
 }
-
 #mppt_floating_charging_voltage {
-    grid-column: 29 / span 4;
-    grid-row: 2 / span 2;
-  background-color: #069;
+    grid-area: 2 / 29 / span 2 / span 4;
+  background-color: #666;
 }
-
 #mppt_charge_start {
-    grid-column: 2 / span 3;
-    grid-row: 18 / span 2;
-  background-color: #069;
+    grid-area: 18 / 2 / span 2 / span 3;
+  background-color: #666;
 }
-
 #mppt_charge_stop {
-    grid-column: 16 / span 3;
-    grid-row: 11 / span 2;
-  background-color: #069;
+    grid-area: 11 / 16 / span 2 / span 3;
+  background-color: #666;
 }
-
 #mppt_charge_completion_current {
-    grid-column: 27 / span 4;
-    grid-row: 17 / span 2;
-  background-color: #069;
+    grid-area: 17 / 27 / span 2 / span 4;
+  background-color: #666;
 }
-
-
 #mppt_observ-area {
-    grid-column: 33 / span 8;
-    grid-row: 1 / span 20;
+    grid-area: 1 / 33 / span 20 / span 8;
   background-color: #069;
 }
-
 #mppt_operation-area {
-    grid-column: 5 / span 34;
-    grid-row: 21 / span 4;
+    grid-area: 21 / 5 / span 4 / span 34;
   background-color: #069;
 }
-
 #mppt_brownout_charge_start {
-    grid-column: 6 / span 7;
-    grid-row: 21 / span 2;
-  background-color: #069;
+    grid-area: 21 / 6 / span 2 / span 7;
+  background-color: #666;
 }
-
 #mppt_brownout_voltage {
-    grid-column: 13 / span 4;
-    grid-row: 21 / span 2;
-  background-color: #069;
+    grid-area: 21 / 13 / span 2 / span 4;
+  background-color: #666;
 }
-
 #mppt_practicable_power {
-    grid-column: 6 / span 7;
-    grid-row: 23 / span 2;
-  background-color: #069;
+    grid-area: 23 / 6 / span 2 / span 7;
+  background-color: #666;
 }
-
 #mppt_sleep {
-    grid-column: 25 / span 7;
-    grid-row: 21 / span 2;
-  background-color: #069;
+    grid-area: 21 / 25 / span 2 / span 7;
+  background-color: #666;
 }
-
 #mppt_charger_pfc_state {
-    grid-column: 25 / span 7;
-    grid-row: 23 / span 2;
-  background-color: #069;
+    grid-area: 23 / 25 / span 2 / span 7;
+  background-color: #666;
 }
-
-
 #mppt_passage-chart {
-    grid-column: 1 / span 40;
-    grid-row: 25 / span 4;
+    grid-area: 25 / 1 / span 4 / span 40;
   background-color: #069;
 }
-
-
-
-
-
 

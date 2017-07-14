@@ -84,12 +84,15 @@ div { display: block; }
 <!-- ***************************  メインコンテンツ  *************************** -->
 
 <!-- ####################  ホーム ####################  -->
+
+<div id="home_background">
+  <div id="inti_pic"></div>
+</div>
 <div id="home-area">   <!-- 最上位　　・アイテム -->
 <!-- ==========  チャート  ========== -->
   <div id="chart-area">
                         <!-- 出力電力円グラフ -->
     <div class="chart" id="chart_outlet">
-
       <div class="circle-mask-outer left">
         <div class="circle-mask-inner">
           <div class="circle-body"></div>
@@ -103,7 +106,8 @@ div { display: block; }
       </div>
 
       <div class="chart-content">
-        <div class="l_icon"><img class="icon" src="images/graphic-outlet.png"></div>
+        <div class="l_icon">
+<!--<img class="icon" src="images/graphic-outlet.png">--></div>
         <div class="title" id="mchart-001"></div>
         <span class="percent-number">0</span>
         <span class="set-percent">70</span>
@@ -125,7 +129,8 @@ div { display: block; }
         </div>
       </div>
       <div class="chart-content">
-        <div class="l_icon"><img class="icon" src="images/graphic-charg.png"></div>
+        <div class="l_icon">
+<!--<img class="icon" src="images/graphic-charg.png">--></div>
         <div class="title" id="mchart-002"></div>
         <span class="percent-number">0</span>
         <span class="set-percent">40</span>
@@ -147,7 +152,8 @@ div { display: block; }
         </div>
       </div>
       <div class="chart-content">
-        <div class="l_icon"><img class="icon" src="images/graphic-solar.png"></div>
+        <div class="l_icon">
+<!--<img class="icon" src="images/graphic-solar.png">--></div>
         <div class="title" id="mchart-003"></div>
         <span class="percent-number">0</span>
         <span class="set-percent">90</span>
@@ -159,9 +165,9 @@ div { display: block; }
   </div>
 
 <!-- ==========  ブロック図（ランチャー）  ========== -->
-  <div id="diagram-area">                       <!-- 第二レベル・アイテム -->
+  <div id="diagram-area">
        <!--  --- アイコン --- -->
-    <div id="diagram"    ></div>
+ <!--   <div id="diagram"    ></div> -->
     <div id="inet_icon"      class="hvr-grow-rotate"      ></div>
     <div id="pv_icon"        class="hvr-wobble-vertical"  ></div>
     <div id="ac_icon"        class="hvr-bounce-in"        ></div>
@@ -183,15 +189,11 @@ div { display: block; }
     <div id="home_arrow1"></div>
     <div id="home_arrow2"></div>
     <div id="home_arrow3"></div>
-    <div id="home_arrow3-2"></div>
     <div id="home_arrow4"></div>
-    <div id="home_arrow4-2"></div>
     <div id="home_arrow5"></div>
     <div id="home_arrow6"></div>
     <div id="home_arrow7"></div>
-    <div id="home_arrow7-2"></div>
     <div id="home_arrow8"></div>
-    <div id="home_arrow8-2"></div>
     <div id="home_arrow9"></div>
     <div id="home_arrow10"></div>
     <div id="home_arrow11"></div>
@@ -201,7 +203,6 @@ div { display: block; }
     <div id="home_arrow15"></div>
 
   </div>
-
 </div>
 
 <!-- ####################  スケジュール設定  ####################  -->
@@ -604,7 +605,7 @@ div { display: block; }
   <div>
 
     <div id="charger_main-area">
-<svg viewBox="0 0 100 100" 
+<!-- <svg viewBox="0 0 100 100" 
      class="main">
   <path stroke="#092951"
         stroke-width="1"
@@ -627,7 +628,7 @@ div { display: block; }
         y="45"
         rx="3"
         ry="3"　/>
-</svg>    </div>
+</svg> -->    </div>
     <div id="spare_charge">
     </div>
     <div id="biggest_charging_current">
@@ -762,16 +763,9 @@ div { display: block; }
     <div id="sndac_outlet-icon"></div>
     <div id="sndac_outlet-area"></div>
        <!--  --- 矢印 --- -->
-    <div id="sndac_arrow1-1"></div>
-    <div id="sndac_arrow1-2"></div>
-    <div id="sndac_arrow1-3"></div>
-    <div id="sndac_arrow2-1"></div>
-    <div id="sndac_arrow2-2"></div>
-    <div id="sndac_arrow2-3"></div>
-    <div id="sndac_arrow2-4"></div>
-    <div id="sndac_arrow3-1"></div>
-    <div id="sndac_arrow3-2"></div>
-    <div id="sndac_arrow3-3"></div>
+    <div id="sndac_arrow1"></div>
+    <div id="sndac_arrow2"></div>
+    <div id="sndac_arrow3"></div>
     <div id="sndac_off"></div>
 
     <div id="sndac_passage-chart">

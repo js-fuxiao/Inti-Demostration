@@ -43,6 +43,7 @@
     $('#diagram-area').css('right', '-100vw');
     $('#operation-others').css('top', '0');
     $('#log').css('bottom', '-100%');
+    $('#inti_pic').css('opacity','0');
   };
 
   function close_page() {
@@ -260,7 +261,7 @@ $(function(){
 　　　　　// アイコンクリック
     $('#pv_icon').click(function() {
         close_page();
-        $('#pv-area').css('z-index', '17');
+        $('#pv-area').css('z-index', '19');
         open_page();
         $("#pv_add_s").val( pv_series );
         $("#pv_add_p").val( pc_parallel );
@@ -407,55 +408,55 @@ $(function(){
 
   $('#schedule_icon').click(function() {
     close_page();
-    $('#schedule-area').css('z-index', '17');
+    $('#schedule-area').css('z-index', '19');
     open_page();
   });
 
   $('#inet_icon').click(function() {
     close_page();
-    $('#net-area').css('z-index', '17');
+    $('#net-area').css('z-index', '19');
     open_page();
   });
 
   $('#switching_icon').click(function() {
     close_page();
-    $('#switch-area').css('z-index', '17');
+    $('#switch-area').css('z-index', '19');
     open_page();
   });
 
   $('#charger_icon').click(function() {
     close_page();
-    $('#charger-area').css('z-index', '17');
+    $('#charger-area').css('z-index', '19');
     open_page();
   });
 
   $('#mppt_icon').click(function() {
     close_page();
-    $('#mppt-area').css('z-index', '17');
+    $('#mppt-area').css('z-index', '19');
     open_page();
   });
 
   $('#battery_icon').click(function() {
     close_page();
-    $('#battery-area').css('z-index', '17');
+    $('#battery-area').css('z-index', '19');
     open_page();
   });
 
   $('#outlet_icon').click(function() {
     close_page();
-    $('#snd_ac-area').css('z-index', '17');
+    $('#snd_ac-area').css('z-index', '19');
     open_page();
   });
 
   $('#inverter_icon').click(function() {
     close_page();
-    $('#snd_ac-area').css('z-index', '17');
+    $('#snd_ac-area').css('z-index', '19');
     open_page();
   });
 
   $('#special_icon').click(function() {
     close_page();
-    $('#ad-area').css('z-index', '17');
+    $('#ad-area').css('z-index', '19');
     open_page();
   });
 
@@ -465,6 +466,8 @@ $(function(){
     $('#diagram-area').css('right', '0');
     $('#operation-others').css('top', '100%');
     $('#log').css('bottom', '0');
+    $('#inti_pic').css('opacity','1.0');
+    close_page();
   });
 
 
@@ -499,7 +502,7 @@ $(function() {
 
     function add_schedule( set_cls ) {
 
-        $('#add_schedule-area').css('z-index', '18');
+        $('#add_schedule-area').css('z-index', '20');
         if(set_cls.match(/ac1/)){
           $('#add_schedule-area .driven_ac1')
               .css('left', 'calc(50% - 62px)');
@@ -520,6 +523,12 @@ $(function() {
 
   $('#add_schedule-area .complet').click(function(e) {
     var kind, low_am;
+    if(e.target.className.match(/ac2/)){
+      kind = 'ac2';
+      area = '.driven_ac2';
+      low_am = 3;
+      low_pm = 10;
+    }
     if(e.target.className.match(/ac1/)){
       kind = 'ac1';
       area = '.driven_ac1';
@@ -608,7 +617,7 @@ $(function() {
   };
 
   function new_bar( terget, op_time, cl_time ) {
-      $(terget).css('background-color', '#ecc');
+//      $(terget).css('background-color', '#ecc');
       var op_glid = (op_time / 100)*60+(op_time % 100),
           cl_glid = ((cl_time / 100)*60+(cl_time % 100)) - op_glid;
       $(terget).css('grid-column', (op_glid + 5) + '/ span '+ cl_glid);

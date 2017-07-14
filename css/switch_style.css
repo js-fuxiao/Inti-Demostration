@@ -18,9 +18,7 @@
 }
 
 #zero_crossing-area {
-    grid-column: 1 / span 9;
-    grid-row: 1 / span 6;
-
+    grid-area: 1 / 1 / span 6 / span 9;
   background-color: #069;
 }
 
@@ -30,24 +28,24 @@
     grid-template-rows: repeat(30,1fr);
     width: 100%;
     height: 100%;
-    background-image: url("../images/sin.png");
+    background-color: #aaa;
+    background-image: url("../images/line_1@4x.png");
     background-size:100% 100%;
 }
 
 #zero_on {
-    grid-column: 5 / span 10;
-    grid-row: 17 / span 8;
+    background-color: #666;
+    grid-area: 18 / 5 / span 8 / span 10;
 }
 
 #zero_off {
-    grid-column: 25 / span 10;
-    grid-row: 17 / span 8;
+    background-color: #666;
+    grid-area: 18 / 27 / span 8 / span 10;
 }
 
 
 #change_time-area {
-    grid-column: 10 / span 9;
-    grid-row: 1 / span 6;
+    grid-area: 1 / 10 / span 6 / span 9;
     background-color: #069;
 }
 
@@ -57,18 +55,18 @@
     grid-template-rows: repeat(30,1fr);
     width: 100%;
     height: 100%;
-    background-image: url("../images/sin2.png");
+    background-color: #aaa;
+    background-image: url("../images/line_2@4x(1).png");
     background-size:100% 100%;
 }
 
 #change_time-set {
-    grid-column: 20 / span 12;
-    grid-row: 17 / span 9;
+    background-color: #666;
+    grid-area: 20 / 15 / span 9 / span 12;
 }
 
 #blackout-area {
-    grid-column: 1 / span 9;
-    grid-row: 7 / span 6;
+    grid-area: 7 / 1 / span 6 / span 9;
     background-color: #069;
 }
 
@@ -78,33 +76,32 @@
     grid-template-rows: repeat(30,1fr);
     width: 100%;
     height: 100%;
-    background-image: url("../images/sin3.png");
+    background-color: #aaa;
+    background-image: url("../images/line_3@4x(1).png");
     background-size:100% 100%;
 }
 
 #blackout-backup {
-    grid-column: 5 / span 10;
-    grid-row: 10 / span 5;
+    grid-area: 8 / 3 / span 5 / span 10;
+    background-color: #666;
 }
 #backup_time-set {
-    grid-column: 20 / span 12;
-    grid-row: 17 / span 8;
+    grid-area: 22 / 17 / span 8 / span 12;
+    background-color: #666;
 }
 #blackout-zero {
-    grid-column: 30 / span 10;
-    grid-row: 10 / span 5;
+    grid-area: 10 / 30 / span 5 / span 10;
+    background-color: #666;
 }
 
 
 #decision_switch {
-    grid-column: 7 / span 3;
-    grid-row: 13 / span 1;
+    grid-area: 13 / 7 / span 1 / span 3;
   background-color: #069;
 }
 
 #switch_operation-area {
-    grid-column: 10 / span 9;
-    grid-row: 7 / span 7;
+    grid-area: 7 / 10 / span 7 / span 9;
   background-color: #069;
 }
 
@@ -117,68 +114,50 @@
 }
 
 #switch_ac-in {
-    grid-column: 3 / span 11;
-    grid-row: 5 / span 9;
+    grid-area: 5 / 3 / span 9 / span 11;
     background-image: url("../images/acline_block.png");
     background-size:100% 100%;
 
 }
 #switch_ac-out {
-    grid-column: 28 / span 11;
-    grid-row: 5 / span 9;
+    grid-area: 5 / 28 / span 9 / span 11;
     background-image: url("../images/outlet2_block.png");
     background-size:100% 100%;
 
 }
 #switch_inverter {
-    grid-column: 16 / span 12;
-    grid-row: 21 / span 9;
+    grid-area: 21 / 16 / span 9 / span 12;
     background-image: url("../images/inverter2_block.png");
     background-size:100% 100%;
-
 }
 
 #switch_arrow_off {
-    grid-column: 14 / span 14;
-    grid-row: 2 / span 3;
-  background-color: #069;
+    grid-area: 2 / 14 / span 3 / span 14;
+  background-color: #666;
 }
-
 #switch_arrow1 {
-    grid-column: 14 / span 14;
-    grid-row: 5 / span 3;
-  background-color: #069;
+    grid-area: 5 / 14 / span 3 / span 14;
+  background-color: #666;
 }
-
 #switch_arrow2 {
-    grid-column: 14 / span 14;
-    grid-row: 8 / span 3;
-  background-color: #069;
+    grid-area: 8 / 14 / span 3 / span 14;
+  background-color: #666;
 }
-
 #switch_arrow2-2 {
-    grid-column: 19 / span 3;
-    grid-row: 11 / span 10;
-  background-color: #069;
+    grid-area: 11 / 19 / span 10 / span 3;
+  background-color: #666;
 }
-
 #switch_arrow3 {
-    grid-column: 22 / span 6;
-    grid-row: 11 / span 3;
-  background-color: #069;
+    grid-area: 11 / 22 / span 3 / span 6;
+  background-color: #666;
 }
-
 #switch_arrow3-2 {
-    grid-column: 22 / span 3;
-    grid-row: 14 / span 7;
-  background-color: #069;
+    grid-area: 14 / 22 / span 7 / span 3;
+  background-color: #666;
 }
-
-
 #switch_passage-chart {
-    grid-column: 1 / span 18;
-    grid-row: 14 / span 2;
-  background-color: #069;
+    grid-area: 14 / 1 / span 2 / span 18;
+  background-color: #666;
 }
 
 

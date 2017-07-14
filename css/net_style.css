@@ -133,89 +133,72 @@
 
 
 #lan_static{
-    grid-column: 4 / span 2;
-    grid-row: 2 / span 1;
+    grid-area: 2 / 4 / span 1 / span 2;
+    background-color: #606060;
 }
-
 #lan_pppoe_off{
-    grid-column: 6 / span 2;
-    grid-row: 2 / span 1;
+    grid-area: 2 / 6 / span 1 / span 2;
+    background-color: #606060;
 }
-
 #lan_ipaddr{
-    grid-column: 2 / span 2;
-    grid-row: 4 / span 2;
+    grid-area: 4 / 2 / span 2 / span 2;
+    background-color: #606060;
 }
-
 #lan_mask{
-    grid-column: 2 / span 2;
-    grid-row: 7 / span 2;
+    grid-area: 7 / 2 / span 2 / span 2;
+    background-color: #606060;
 }
-
 #lan_df-gw{
-    grid-column: 2 / span 2;
-    grid-row: 10 / span 2;
+    grid-area: 10 / 2 / span 2 / span 2;
+    background-color: #606060;
 }
-
 #lan_dns1{
-    grid-column: 2 / span 2;
-    grid-row: 13 / span 2;
+    grid-area: 13 / 2 / span 2 / span 2;
+    background-color: #606060;
 }
-
 #lan_dns2{
-    grid-column: 2 / span 2;
-    grid-row: 16 / span 2;
+    grid-area: 16 / 2 / span 2 / span 2;
+    background-color: #606060;
 }
-
 #lan_dns3{
-    grid-column: 2 / span 2;
-    grid-row: 19 / span 2;
+    grid-area: 19 / 2 / span 2 / span 2;
+    background-color: #606060;
 }
-
-
 #set_ipaddr{
-    grid-column: 4 / span 4;
-    grid-row: 4 / span 2;
+    grid-area: 4 / 4 / span 2 / span 4;
+    background-color: #606060;
 }
-
 #set_mask{
-    grid-column: 4 / span 4;
-    grid-row: 7 / span 2;
+    grid-area: 7 / 4 / span 2 / span 4;
+    background-color: #606060;
 }
-
 #set_df-gw{
-    grid-column: 4 / span 4;
-    grid-row: 10 / span 2;
+    grid-area: 10 / 4 / span 2 / span 4;
+    background-color: #606060;
 }
-
 #set_dns1{
-    grid-column: 4 / span 4;
-    grid-row: 13 / span 2;
+    grid-area: 13 / 4 / span 2 / span 4;
+    background-color: #606060;
 }
-
 #set_dns2{
-    grid-column: 4 / span 4;
-    grid-row: 16 / span 2;
+    grid-area: 16 / 4 / span 2 / span 4;
+    background-color: #606060;
 }
-
 #set_dns3{
-    grid-column: 4 / span 4;
-    grid-row: 19 / span 2;
+    grid-area: 19 / 4 / span 2 / span 4;
+    background-color: #606060;
 }
-
-
 #set_dns-auto{
-    grid-column: 9 / span 1;
-    grid-row: 13 / span 1;
+    grid-area: 13 / 9 / span 1 / span 1;
+    background-color: #606060;
 }
-
 #lan_up{
-    grid-column: 4 / span 2;
-    grid-row: 22 / span 2;
+    grid-area: 22 / 4 / span 2 / span 2;
+    background-color: #606060;
 }
 
 #lan_save{
-    grid-column: 6 / span 2;
-    grid-row: 22 / span 2;
+    grid-area: 22 / 6 / span 2 / span 2;
+    background-color: #606060;
 }
 
